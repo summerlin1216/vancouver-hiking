@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>今天去哪裡 Hiking｜大溫哥華精選路線</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Noto Sans TC',sans-serif;background:#f5f0e8;color:#1c2b1f;min-height:100vh}
+a{text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none}
+:root{--forest:#1a3a2a;--moss:#4a7c59;--fern:#6aaa7a;--border:#e8e4dc;--gold:#f59e0b;--card:#fff;--mid:#3d5a45;--light:#6b7c71}
+.hero{background:linear-gradient(155deg,#0f2419,#1a3a2a 35%,#2d5a3d 70%,#3d7050);padding:42px 20px 38px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 80%,rgba(106,170,122,.12),transparent 60%)}
+.hdeco{position:absolute;opacity:.05;font-size:13rem;line-height:1;pointer-events:none;user-select:none;bottom:-10px}
+.hdeco.r{right:-30px}.hdeco.l{left:-40px;font-size:8rem}
+.hin{max-width:880px;margin:0 auto;position:relative;z-index:2}
+.eyebrow{text-align:center;font-size:.76rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(168,213,181,.85);margin-bottom:10px}
+.htitle{font-family:'Noto Serif TC',serif;font-size:clamp(1.9rem,5.5vw,3.2rem);font-weight:900;color:#fff;text-align:center;line-height:1.2;margin-bottom:8px}
+.hsub{text-align:center;font-size:.88rem;color:rgba(255,255,255,.55);margin-bottom:28px}
+.swrap{max-width:500px;margin:0 auto 22px}
+.sinput{width:100%;background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.2);color:#fff;border-radius:14px;padding:11px 20px;font-size:.95rem;outline:none;font-family:inherit}
+.sinput::placeholder{color:rgba(255,255,255,.45)}
+.sinput:focus{background:rgba(255,255,255,.17);border-color:rgba(255,255,255,.42)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:24px}
+.tbtn{padding:8px 20px;border-radius:50px;font-weight:600;font-size:.84rem;border:1.5px solid rgba(255,255,255,.26);background:transparent;color:rgba(255,255,255,.68);transition:all .2s;white-space:nowrap}
+.tbtn:hover{background:rgba(255,255,255,.1);color:#fff}
+.tbtn.active{background:#fff;color:var(--forest);border-color:#fff}
+.tcnt{background:rgba(255,255,255,.2);color:#fff;border-radius:50px;padding:1px 8px;font-size:.72rem;font-weight:700;margin-left:4px}
+.tbtn.active .tcnt{background:rgba(26,58,42,.14);color:var(--forest)}
+.lbtn{display:block;margin:0 auto;background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff;border-radius:50px;padding:13px 36px;font-size:1rem;font-weight:700;font-family:'Noto Serif TC',serif;box-shadow:0 4px 22px rgba(245,158,11,.42);transition:transform .2s,box-shadow .2s}
+.lbtn:hover{transform:translateY(-2px);box-shadow:0 7px 28px rgba(245,158,11,.56)}
+.main{max-width:1100px;margin:0 auto;padding:28px 16px 52px}
+.rbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:6px}
+.rcnt{font-size:.87rem;color:var(--mid);font-weight:600}
+.legend{font-size:.71rem;color:#9ca3af}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:24px}
+@media(max-width:600px){.grid{grid-template-columns:1fr;gap:18px}}
+.card{background:var(--card);border-radius:20px;overflow:hidden;box-shadow:0 2px 14px rgba(26,58,42,.09);border:2px solid transparent;display:flex;flex-direction:column;transition:transform .28s cubic-bezier(.34,1.56,.64,1),box-shadow .28s}
+.card:hover{transform:translateY(-5px);box-shadow:0 14px 40px rgba(26,58,42,.18)}
+.card.hl{border-color:var(--gold);animation:pgold 1.8s ease-in-out infinite}
+@keyframes pgold{0%,100%{box-shadow:0 0 0 4px rgba(245,158,11,.22),0 14px 40px rgba(245,158,11,.3)}50%{box-shadow:0 0 0 9px rgba(245,158,11,.1),0 14px 40px rgba(245,158,11,.38)}}
+/* IMAGE */
+.iwrap{position:relative;width:100%;height:210px;overflow:hidden;background:linear-gradient(135deg,#2d5a3d,#4a7c59);flex-shrink:0}
+.iwrap img{width:100%;height:100%;object-fit:cover;display:block}
+.img-err{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:rgba(255,255,255,.7);font-size:.85rem;font-weight:600;gap:8px;display:none}
+.img-err span:first-child{font-size:2.5rem}
+.cbadges{position:absolute;top:10px;left:10px;display:flex;flex-wrap:wrap;gap:5px;z-index:2}
+.cnum{position:absolute;top:10px;right:10px;background:rgba(0,0,0,.5);color:#fff;font-size:.67rem;font-weight:700;border-radius:50px;padding:3px 9px;z-index:2}
+/* BODY */
+.cbody{padding:16px 18px 18px;display:flex;flex-direction:column;gap:11px;flex:1}
+.badge{display:inline-flex;align-items:center;gap:3px;padding:3px 10px;border-radius:50px;font-size:.71rem;font-weight:700;white-space:nowrap}
+.bt{background:#dcfce7;color:#15803d}.bd{background:#fef3c7;color:#92400e}.bsk{background:#e0f2fe;color:#0369a1}
+.ba{background:#fee2e2;color:#dc2626}.bb{background:#fff7ed;color:#c2410c;border:1px solid #fed7aa;font-weight:800}
+.ctitle{font-family:'Noto Serif TC',serif;font-size:1.08rem;font-weight:700;color:#1c2b1f;line-height:1.3;margin-bottom:6px}
+.srow{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:2px}
+.sgl{font-size:.67rem;font-weight:700;color:var(--light);letter-spacing:.05em;text-transform:uppercase}
+.diff-tag{font-size:.68rem;font-weight:700;margin-left:6px;padding:1px 8px;border-radius:50px}
+.diff-tag.e{background:#dcfce7;color:#15803d}.diff-tag.m{background:#fef3c7;color:#92400e}.diff-tag.h{background:#fee2e2;color:#dc2626}
+.slbl2{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--moss);margin-bottom:3px}
+.det{font-size:.81rem;color:#374151;line-height:1.6}
+.tlist{padding-left:4px;list-style:none}
+.tlist li{font-size:.8rem;color:#374151;line-height:1.55;padding:2px 0 2px 15px;position:relative}
+.tlist li::before{content:'›';position:absolute;left:0;color:var(--moss);font-weight:700}
+.igrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+hr.dv{border:none;border-top:1px solid var(--border)}
+.why{background:#f0fdf4;border-left:3px solid var(--fern);border-radius:0 8px 8px 0;padding:8px 12px;font-size:.8rem;color:#166534;line-height:1.6}
+.gbtn{width:100%;text-align:left;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:8px 14px;font-size:.78rem;color:#166534;font-weight:600}
+.gbtn:hover{background:#dcfce7}
+.gbody{display:none;background:#f9fafb;border:1px solid #e5e7eb;border-radius:10px;padding:10px 14px;font-size:.78rem;color:#374151;margin-top:5px;line-height:1.75}
+.gbody.open{display:block}
+.mlink{display:inline-flex;align-items:center;gap:4px;font-size:.76rem;font-weight:600;padding:5px 14px;border-radius:8px;background:#eff6ff;color:#2563eb}
+.mlink:hover{background:#dbeafe}
+.wc-row{display:flex;align-items:center;gap:6px;font-size:.8rem;color:#374151}
+.wc-stars{color:#f59e0b;font-size:.9rem;letter-spacing:1px}
+.wc-label{font-size:.72rem;color:var(--light)}
+.empty{text-align:center;padding:70px 20px;color:var(--mid)}
+#ov{display:none;position:fixed;inset:0;background:rgba(15,36,25,.9);z-index:200;align-items:center;justify-content:center;flex-direction:column;gap:18px}
+#ov.on{display:flex}
+.rsp{font-size:4.5rem;animation:rspin .38s linear infinite}
+@keyframes rspin{0%{transform:rotate(0)scale(1)}50%{transform:rotate(180deg)scale(1.15)}100%{transform:rotate(360deg)scale(1)}}
+.rnm{font-family:'Noto Serif TC',serif;font-size:clamp(1.5rem,5vw,2.4rem);font-weight:900;color:var(--gold);text-align:center;padding:0 24px;text-shadow:0 2px 22px rgba(245,158,11,.5)}
+.rsb{font-size:.82rem;color:rgba(255,255,255,.42)}
+footer{background:var(--forest);color:rgba(255,255,255,.42);text-align:center;padding:26px 16px;font-size:.75rem;line-height:1.9}
+.ft{color:rgba(168,213,181,.85);font-weight:700;margin-bottom:4px;font-size:.82rem}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:#f5f0e8}
+::-webkit-scrollbar-thumb{background:var(--moss);border-radius:3px}
+</style>
+</head>
+<body>
+<div id="ov">
+  <div class="rsp" id="rsp">🌲</div>
+  <div class="rnm" id="rnm">抽選中⋯</div>
+  <div class="rsb">正在為你選擇今天的冒險</div>
+</div>
+<div class="hero">
+  <div class="hdeco r">🌲</div><div class="hdeco l">🏔️</div>
+  <div class="hin">
+    <p class="eyebrow">Metro Vancouver · 2025–2026</p>
+    <h1 class="htitle">今天去哪裡 Hiking？</h1>
+    <p class="hsub">大溫哥華精選路線 · 洗手間 ≥ 3 星 · Reddit + 在地人推薦</p>
+    <div class="swrap"><input id="si" class="sinput" type="text" placeholder="🔍  搜尋路線名稱、特色…"></div>
+    <div class="tabs">
+      <button class="tbtn active" data-tab="all">全部 <span class="tcnt" id="ca"></span></button>
+      <button class="tbtn" data-tab="skytrain">🚇 出站即走 <span class="tcnt" id="csk"></span></button>
+      <button class="tbtn" data-tab="transit">🚌 大眾運輸 <span class="tcnt" id="ct"></span></button>
+      <button class="tbtn" data-tab="driving">🚗 需要開車 <span class="tcnt" id="cd"></span></button>
+    </div>
+    <button class="lbtn" id="lb">🎲 今天去哪裡？幫我隨機抽一條！</button>
+  </div>
+</div>
+<main class="main">
+  <div class="rbar">
+    <span class="rcnt" id="rc"></span>
+    <span class="legend">🌲 = 難度　🚻 = 洗手間整潔度</span>
+  </div>
+  <div id="grid" class="grid"></div>
+  <div id="emp" class="empty" style="display:none">
+    <div style="font-size:3rem;margin-bottom:12px">🌿</div>
+    <div style="font-size:1.1rem;font-weight:700;margin-bottom:6px">找不到符合的路線</div>
+    <div style="font-size:.85rem;color:#9ca3af">試試其他關鍵字</div>
+  </div>
+</main>
+<footer>
+  <div class="ft">今天去哪裡 Hiking · 大溫哥華精選指南</div>
+  圖片來源：Wikimedia Commons（CC授權）· 資料：Reddit r/vancouverhiking · AllTrails · BC Parks · 2025–2026<br>
+  洗手間評分基於 vancouvertrails.com 及實地報告，低於 3 星路線已移除。<br>
+  <span style="color:rgba(255,255,255,.25)">🚇 出站即走 = 出 SkyTrain 無需轉車，步行即達，可走 ≥1 小時</span>
+</footer>
+<script>
+/* ─────────────────────────────────────────────────────────
+   圖片全部使用 Unsplash CDN 網址，瀏覽器直接載入
+   由 MD5(filename) 計算得出，不需重導向，瀏覽器直接載入
+   ───────────────────────────────────────────────────────── */
+const T=[
+
+/* ══ 🚇 出站即走 ══════════════════════════════════════════ */
+{id:31,cat:"skytrain",name:"本拿比湖環湖步道 Burnaby Lake Loop",
+ walkMin:8,station:"Sperling–Burnaby Lake 站",diff:1,bear:false,wc:4,wcNote:"多處永久洗手間（運動場、南岸、自然中心）",
+ img:"https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&auto=format&fit=crop&q=80",
+ why:"從 Sperling–Burnaby Lake 站出站步行 8 分鐘即進入公園，全程 10 公里環湖，沿途賞鷺、水獺，洗手間設施完善，最適合出站即走的自然體驗。",
+ transit:["Sperling–Burnaby Lake 站（Millennium Line）出站","步行約 8 分鐘穿越小路進入公園西側運動場","順時針環湖步道全程約 10 公里，2–2.5 小時"],
+ dur:"環湖約 2–2.5 小時",permit:null,
+ chal:"夏季蚊蟲多，帶防蚊液；雨後木棧道濕滑；環湖方向自由選擇。",
+ gearBasic:true,gear:"輕便鞋、防蚊液（夏季）、飲用水、望遠鏡（賞鳥推薦）",
+ scenery:"寬闊湖面，Piper Spit 木棧道伸入水中，大藍鷺、天鵝環繞，遠眺北岸山脈。",
+ maps:"https://maps.google.com/?q=Sperling+Burnaby+Lake+SkyTrain"},
+
+{id:32,cat:"skytrain",name:"中央公園 Central Park Burnaby",
+ walkMin:5,station:"Patterson 站",diff:1,bear:false,wc:4,wcNote:"固定洗手間，定期清潔維護",
+ img:"https://images.unsplash.com/photo-1448375240586-882707db888b?w=800&auto=format&fit=crop&q=80",
+ why:"Patterson 站出站步行 5 分鐘即達，90 公頃城市森林，有池塘、玫瑰園、雪松步道。洗手間乾淨，是下班後「微健行」首選。",
+ transit:["Patterson 站（Expo Line）出站","步行 5 分鐘即達公園入口（Boundary Road 側）","內部步道靈活自由，可走 1–2 小時"],
+ dur:"隨意漫步 1–2 小時",permit:null,
+ chal:"週末有活動時部分區域關閉；夏季迷你高爾夫人多。",
+ gearBasic:true,gear:"任何鞋子、飲用水",
+ scenery:"雪松、花旗松高聳，池塘邊野鴨嬉戲，玫瑰園盛開時香氣四溢。",
+ maps:"https://maps.google.com/?q=Central+Park+Burnaby+BC"},
+
+{id:33,cat:"skytrain",name:"新西敏河岸步道 Westminster Waterfront",
+ walkMin:3,station:"New Westminster 站",diff:1,bear:false,wc:5,wcNote:"Westminster Pier Park 設有現代化洗手間，全年開放",
+ img:"https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=800&auto=format&fit=crop&q=80",
+ why:"出站 3 分鐘即達 Fraser River 河岸。Westminster Pier Park + Waterfront Esplanade 共 2.5 公里步道，洗手間完善，是大溫最方便的河岸散步路線。",
+ transit:["New Westminster 站（Expo Line）出站","往 River Market 方向步行約 3 分鐘","Pier Park → Esplanade 走完來回約 1.5–2 小時"],
+ dur:"步道全程 2.5 公里，來回或延伸約 1.5–2 小時",permit:null,
+ chal:"路面全程無障礙平地；夏季週末人多；部分路段上下層有樓梯。",
+ gearBasic:true,gear:"輕便鞋、飲用水、相機",
+ scenery:"Fraser River 寬闊河面，對岸山脈連綿，Pier Park 藝術裝置與木棧道極具特色，夏季可見鮭魚洄游。",
+ maps:"https://maps.google.com/?q=Westminster+Pier+Park+New+Westminster"},
+
+{id:34,cat:"skytrain",name:"皇后公園 Queen's Park New Westminster",
+ walkMin:12,station:"New Westminster 站",diff:1,bear:false,wc:4,wcNote:"公園內固定洗手間，維護良好",
+ img:"https://images.unsplash.com/photo-1474552226712-ac0f0961a954?w=800&auto=format&fit=crop&q=80",
+ why:"BC 省第一座公立公園（1887年），75 英畝，有玫瑰園、噴水廣場、步道。結合河岸步道可輕鬆走超過 1.5 小時。",
+ transit:["New Westminster 站出站","往 Royal Avenue 方向步行約 12 分鐘","建議先走河岸步道再步行上山，全程約 1.5–2 小時"],
+ dur:"公園步道約 1 小時；結合河岸約 1.5–2 小時",permit:null,
+ chal:"路面平地或緩坡；夏季有音樂會活動人較多。",
+ gearBasic:true,gear:"輕便鞋、飲用水",
+ scenery:"BC 省最古老公園，玫瑰園花色繽紛，歷史展示牌述說新西敏故事，露天音樂台夏季定期演出。",
+ maps:"https://maps.google.com/?q=Queen%27s+Park+New+Westminster+BC"},
+
+{id:35,cat:"skytrain",name:"BC Parkway 綠道",
+ walkMin:1,station:"Patterson / Metrotown / Royal Oak / Edmonds 站",diff:1,bear:false,wc:3,wcNote:"沿線各站附近有公共洗手間，站間路段無固定設施",
+ img:"https://images.unsplash.com/photo-1512036666432-2181c1f26420?w=800&auto=format&fit=crop&q=80",
+ why:"沿 Expo Line 延伸的都市綠道，從 New Westminster Quay 橫跨 Burnaby 至 False Creek，全長 24 公里。任一 Expo Line 站出站 1 分鐘即可接上步道，想走多長自己決定。",
+ transit:["Patterson、Metrotown、Royal Oak 或 Edmonds 站任一出站","步行 1 分鐘即達 BC Parkway 步道入口","可選段：Patterson→Edmonds 約 1.5 小時，繼續→New Westminster 約 3 小時"],
+ dur:"彈性：30 分鐘～全天",permit:null,
+ chal:"全鋪裝路面；部分路段與自行車共用，注意讓路。",
+ gearBasic:true,gear:"任何鞋子、飲用水",
+ scenery:"都市綠道穿越 Burnaby 各社區，沿途公共藝術裝置、鄰里公園、咖啡廳；在 Burnaby Lake 段可接上自然步道。",
+ maps:"https://maps.google.com/?q=BC+Parkway+Trail+Burnaby+BC"},
+
+/* ══ 🚌 大眾運輸可達 ══════════════════════════════════════ */
+{id:1,cat:"transit",name:"採石場岩 Quarry Rock",diff:2,bear:false,wc:3,wcNote:"步道上無廁所；Deep Cove 海灘附近有固定洗手間（起點前可用）",
+ img:"https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&auto=format&fit=crop&q=80",
+ why:"大溫最受歡迎入門路線，終點岩石俯瞰 Indian Arm 峽灣是 IG 打卡聖地。2025 年 Reddit r/vancouverhiking 每週必推「給第一次來溫哥華的朋友」。",
+ transit:["Patterson 站 → Canada Line → Waterfront 站","轉 SeaBus → Lonsdale Quay","轉 C15 公車 → Deep Cove（建議 Google Maps 確認班次）","步行至登山口約 5 分鐘，含交通共約 1 小時 15 分"],
+ dur:"來回約 1.5–2 小時",permit:null,
+ chal:"週末人潮擁擠，建議 8 點前出發；出發前在 Deep Cove 使用洗手間；樹根交錯注意腳步。",
+ gearBasic:true,gear:"輕量健行鞋、飲用水 1L、防曬乳、輕薄外套",
+ scenery:"站在大岩石上俯瞰碧藍的 Indian Arm 峽灣全景，遠方山脈連綿，晴天可見 Golden Ears。",
+ maps:"https://maps.google.com/?q=Quarry+Rock+Deep+Cove+BC"},
+
+{id:2,cat:"transit",name:"鹿湖步道 Deer Lake Trail",diff:1,bear:false,wc:4,wcNote:"湖畔藝術中心及多處固定洗手間，乾淨維護良好",
+ img:"https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&auto=format&fit=crop&q=80",
+ why:"Burnaby 最親民的城市綠洲，適合帶狗、推嬰兒車。小紅書溫哥華生活版年度推薦，湖邊藝術中心讓路線不只是健行。",
+ transit:["Metrotown 站 → 144 公車 → Shadbolt Centre（約 15 分）","或 Patterson 站步行約 20 分鐘"],
+ dur:"環湖約 1 小時",permit:null,
+ chal:"路線非常平坦；夏季鴨子多適合帶孩子。",
+ gearBasic:true,gear:"輕便鞋、飲用水、防曬乳",
+ scenery:"湖面倒映著四周樹木與天空，春夏滿是野花，秋天楓葉落在水面。",
+ maps:"https://maps.google.com/?q=Deer+Lake+Park+Burnaby+BC"},
+
+{id:3,cat:"transit",name:"本拿比湖 Burnaby Lake (Piper Spit)",diff:1,bear:false,wc:4,wcNote:"多處永久洗手間（運動場、南岸 Glencarin、自然中心），維護穩定",
+ img:"https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&auto=format&fit=crop&q=80",
+ why:"賞鳥天堂，大溫最重要濕地保護區之一。Piper Spit 木棧道是拍攝蒼鷺、水獺的絕佳地點，也可從 Sperling 站直接步行前往。",
+ transit:["Sperling–Burnaby Lake 站步行約 8 分鐘即達","或從 Production Way 站步行約 20 分鐘"],
+ dur:"環湖步道約 2–2.5 小時",permit:null,
+ chal:"夏季蚊蟲多，帶防蚊液；雨後部分路段泥濘，穿防水鞋。",
+ gearBasic:true,gear:"輕便鞋、防蚊液（夏季）、望遠鏡、飲用水",
+ scenery:"廣闊湖面濕地，大藍鷺、天鵝、野鴨環繞，清晨薄霧飄散在水面，極具療癒感。",
+ maps:"https://maps.google.com/?q=Burnaby+Lake+Piper+Spit+BC"},
+
+{id:4,cat:"transit",name:"太平洋精神公園 Pacific Spirit Regional Park",diff:1,bear:false,wc:3,wcNote:"停車場附近有設施；步道內部無廁所，但入口處可使用",
+ img:"https://images.unsplash.com/photo-1448375240586-882707db888b?w=800&auto=format&fit=crop&q=80",
+ why:"UBC 旁的都市森林，超過 70 公里步道網絡，是附近居民日常森林浴勝地。2025 年 Reddit 持續推薦為最佳「清醒頭腦」路線。",
+ transit:["Canada Line → 99B 公車直達 UBC","步行至公園入口約 10 分鐘，全程約 45–50 分鐘"],
+ dur:"依選擇路線 1–3 小時",permit:null,
+ chal:"步道岔路多，建議下載 AllTrails 離線地圖；秋冬路面濕滑；進入前在 UBC 使用洗手間。",
+ gearBasic:true,gear:"運動鞋（防水更佳）、飲用水、離線地圖",
+ scenery:"高聳的西部紅杉與花旗松形成天然綠色隧道，秋季楓葉金黃，結尾可前往 Wreck Beach 看海。",
+ maps:"https://maps.google.com/?q=Pacific+Spirit+Regional+Park+Vancouver+BC"},
+
+{id:5,cat:"transit",name:"史丹利公園海牆 Stanley Park Seawall",diff:1,bear:false,wc:5,wcNote:"沿海牆多處現代化固定洗手間，全年開放，整潔度高",
+ img:"https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&auto=format&fit=crop&q=80",
+ why:"溫哥華最具代表性的公園，全球最美都市公園之一。海牆可見北岸山脈倒影、Canada Place、獅門橋，任何來溫哥華的人必走一次。",
+ transit:["Canada Line → Granville 或 Vancouver City Centre 站","轉公車至 Stanley Park 入口，全程約 30–40 分鐘"],
+ dur:"海牆全圈約 2.5–3 小時",permit:null,
+ chal:"夏季遊客極多，建議平日或清晨前往；可租腳踏車加快速度。",
+ gearBasic:true,gear:"輕便運動鞋、飲用水、防曬乳、相機",
+ scenery:"北岸山脈倒映碧藍海面，獅門橋宏偉壯麗，圖騰柱文化區充滿故事，每個轉角都是明信片級風景。",
+ maps:"https://maps.google.com/?q=Stanley+Park+Vancouver+BC"},
+
+{id:6,cat:"transit",name:"卡皮拉諾峽谷 Capilano Canyon Loop",diff:2,bear:false,wc:3,wcNote:"Cleveland Dam 附近有固定洗手間；峽谷深處路段無設施",
+ img:"https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800&auto=format&fit=crop&q=80",
+ why:"不進吊橋公園也可免費體驗卡皮拉諾峽谷！Cleveland Dam 免費路線，峽谷壁立、溪流轟鳴，Reddit 力推「高 CP 值峽谷步道」。",
+ transit:["Waterfront 站轉 246 公車（夏季有 236 直達）至 Capilano Road","全程約 1 小時"],
+ dur:"來回約 2–3 小時",permit:null,
+ chal:"雨後路面極濕滑；部分路段懸崖邊需謹慎；進入前在 Cleveland Dam 停車場使用洗手間。",
+ gearBasic:true,gear:"抓地力好的健行鞋（必要）、飲用水、防雨外套",
+ scenery:"深邃峽谷中翠綠溪水奔騰，兩岸參天古木，Cleveland Dam 與遠山形成強烈對比，丁達爾光束穿透樹隙。",
+ maps:"https://maps.google.com/?q=Capilano+River+Regional+Park+BC"},
+
+{id:7,cat:"transit",name:"林恩峽谷雙瀑布 Lynn Canyon Twin Falls",diff:2,bear:false,wc:4,wcNote:"生態中心及停車場附近有固定洗手間，維護良好",
+ img:"https://images.unsplash.com/photo-1548777123-e216912df7d8?w=800&auto=format&fit=crop&q=80",
+ why:"完全免費的吊橋＋瀑布體驗！2025 年 Reddit 持續推薦為「不輸 Capilano 吊橋卻完全免費」的替代選項，CP 值大溫最高之一。",
+ transit:["Waterfront 站 → SeaBus → Lonsdale Quay","轉 228 公車 → Lynn Valley Road","步行至公園入口約 10 分鐘，全程約 1 小時 10 分"],
+ dur:"來回約 2–2.5 小時",permit:null,
+ chal:"夏季週末非常擁擠；吊橋有人數限制需排隊；峽谷游泳區夏季人潮極多。",
+ gearBasic:true,gear:"防水抓地健行鞋、飲用水、夏季可帶泳衣",
+ scenery:"免費吊橋下方是湛藍深邃的峽谷水潭，Twin Falls 兩道瀑布轟鳴而下，水花飛濺。",
+ maps:"https://maps.google.com/?q=Lynn+Canyon+Park+North+Vancouver+BC"},
+
+{id:8,cat:"transit",name:"萊斯湖 Rice Lake",diff:1,bear:false,wc:3,wcNote:"Lynn Headwaters 入口有設施；湖邊步道上無廁所，約 10 分鐘步行可達",
+ img:"https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&auto=format&fit=crop&q=80",
+ why:"Lynn Headwaters Regional Park 最平易近人的湖泊步道，全無障礙木棧道，親子、輪椅、嬰兒車皆可通行，溫哥華隱藏版寶石。",
+ transit:["Waterfront 站 → SeaBus → Lonsdale Quay → 228 公車 → Lynn Valley Road","步行或轉乘至公園，全程約 1 小時 20 分"],
+ dur:"環湖約 1 小時",permit:null,
+ chal:"停車場週末爆滿，大眾運輸前往更方便；秋冬路面可能結霜。",
+ gearBasic:true,gear:"輕便鞋、飲用水、釣魚竿（需執照）",
+ scenery:"靜謐山中湖泊，水面清澈見底，倒映藍天松林，秋天金紅楓樹倒影尤其壯觀。",
+ maps:"https://maps.google.com/?q=Rice+Lake+North+Vancouver+BC"},
+
+{id:9,cat:"transit",name:"燈塔公園 Lighthouse Park",diff:2,bear:false,wc:3,wcNote:"燈塔附近建築內有洗手間；步道途中無廁所，出發前務必使用",
+ img:"https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&auto=format&fit=crop&q=80",
+ why:"西溫最壯觀的海岸峭壁步道，百年古老燈塔坐落在花崗岩礁石上，俯瞰 Strait of Georgia 海峽。Reddit 多次推薦為「溫哥華最有氣勢的海岸步道」。",
+ transit:["Waterfront 站轉 250/257 公車至 Lighthouse Park 附近","全程約 1 小時 30 分（⚠️ 班次稀少，提前查好回程）"],
+ dur:"主要路線來回約 2–3 小時",permit:null,
+ chal:"岩石步道需穿抓地力好的鞋；公車班次少，必須提前查好回程；颳風天勿前往海岬。",
+ gearBasic:true,gear:"抓地力優良的健行鞋（必要）、飲用水、防風外套、相機",
+ scenery:"矗立在花崗岩礁石上的白色燈塔，背後是蔚藍的海峽，晴天可見溫哥華島輪廓。",
+ maps:"https://maps.google.com/?q=Lighthouse+Park+West+Vancouver+BC"},
+
+{id:10,cat:"transit",name:"BCMC Trail（免費版 Grouse Mountain）",diff:4,bear:false,wc:4,wcNote:"山腳纜車站附近及山頂 Chalet 內有良好洗手間設施",
+ img:"https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&auto=format&fit=crop&q=80",
+ why:"Grouse Grind 免費替代路線，同樣從山腳爬到 Grouse Mountain，BCMC 不收費。是本地人的「健身步道」，Reddit 每年數百個挑戰紀錄貼文。",
+ transit:["Waterfront 站轉 232 或 236 公車至 Grouse Mountain 山腳","全程約 1 小時"],
+ dur:"上山約 1.5–2 小時，下山約 1–1.5 小時",permit:null,
+ chal:"幾乎全程陡坡，海拔爬升約 853 公尺；秋冬可能積雪；初學者請勿挑戰。",
+ gearBasic:false,gear:"🔴 進階裝備：專業登山鞋（防滑防水）、登山杖（強烈建議）、飲用水 2L+、高能量補給、防雨保暖外套、離線地圖",
+ scenery:"登頂後俯瞰溫哥華全市、英吉利灣與遠方海峽，晴天視野延伸至 Mount Baker（美國境內）。",
+ maps:"https://maps.google.com/?q=BCMC+Trail+North+Vancouver+BC"},
+
+{id:11,cat:"transit",name:"鮑文展望台 Bowen Lookout（Cypress Mountain）",diff:2,bear:false,wc:3,wcNote:"Cypress Mountain 停車場有洗手間；步道途中無廁所",
+ img:"https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&auto=format&fit=crop&q=80",
+ why:"Cypress Mountain 最易親近的展望台，360 度視野俯瞰 Howe Sound、Bowen Island、溫哥華市區。2025 年小紅書最多人分享的「一小時即達絕景」路線。",
+ transit:["轉公車至 Cypress Mountain（班次有季節性限制，強烈建議先 Google Maps 確認）","或考慮拼車 / 網約車前往"],
+ dur:"來回約 2–3 小時",permit:null,
+ chal:"公車班次極少；山頂風大，溫度比市區低約 5–8°C；雪季後步道可能殘雪。",
+ gearBasic:true,gear:"抓地力健行鞋、防風保暖外套（山頂必備）、飲用水、相機",
+ scenery:"Howe Sound 峽灣全景盡收眼底，Bowen Island 像一顆翡翠漂浮在海上，溫哥華市區與遠山形成完美天際線。",
+ maps:"https://maps.google.com/?q=Bowen+Lookout+Cypress+Mountain+BC"},
+
+/* ══ 🚗 需要開車 ══════════════════════════════════════════ */
+{id:13,cat:"driving",name:"狗山 Dog Mountain (Mount Seymour)",diff:2,bear:false,wc:3,wcNote:"Mount Seymour 停車場有洗手間；步道上無廁所，出發前使用",
+ img:"https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800&auto=format&fit=crop&q=80",
+ why:"北溫最受歡迎的初中級路線，終點展望台俯瞰溫哥華全景、海洋、山脈。2025 年 AllTrails 和 Reddit 長期名列大溫推薦前五名。",
+ transit:["需自駕：→ Mount Seymour Provincial Park","約 30–40 分鐘車程"],
+ dur:"來回約 2.5–3 小時",permit:null,
+ chal:"秋冬可能積雪，需確認路況；停車位有限，週末早到為要。",
+ gearBasic:true,gear:"健行鞋（防水更佳）、飲用水 1.5L、防雨外套、零食",
+ scenery:"溫哥華市區、Burrard Inlet、英吉利灣、Gulf Islands 一覽無遺，被公認為大溫最壯觀的 360 度視野之一。",
+ maps:"https://maps.google.com/?q=Dog+Mountain+Trail+Mount+Seymour+BC"},
+
+{id:14,cat:"driving",name:"黃金耳瀑布 Gold Creek Falls (Golden Ears)",diff:2,bear:true,wc:4,wcNote:"Golden Ears Provincial Park 停車場及沿途有多處固定洗手間，設施完善",
+ img:"https://images.unsplash.com/photo-1418985991508-e47386d96a71?w=800&auto=format&fit=crop&q=80",
+ why:"大溫最壯觀的瀑布健行路線，Golden Ears Provincial Park 春夏水量豐沛期氣勢磅礡，Reddit 和小紅書常勝軍推薦。",
+ transit:["需自駕：→ Hwy 1 → Maple Ridge → Golden Ears Provincial Park","約 60–70 分鐘車程"],
+ dur:"來回約 3–4 小時",permit:"parking",permitNote:"停車費約 $10–15/天；夏季建議確認 BC Parks Day-Use Pass",
+ chal:"停車場週末爆滿，建議 7 點前到達；河道大雨後水位暴漲，勿涉水。",
+ gearBasic:true,gear:"健行鞋、飲用水 2L、防熊噴霧（建議）、防雨外套、零食",
+ scenery:"溪流沿途秀麗，雙瀑布從高聳岩壁飛瀉而下，水霧飛濺，周圍古木參天，最具北美荒野感的瀑布景觀。",
+ maps:"https://maps.google.com/?q=Gold+Creek+Falls+Golden+Ears+BC"},
+
+{id:15,cat:"driving",name:"柏樹瀑布 Cypress Falls",diff:2,bear:false,wc:3,wcNote:"停車場附近有基本洗手間；步道途中無廁所",
+ img:"https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?w=800&auto=format&fit=crop&q=80",
+ why:"西溫隱藏的瀑布寶石，兩段瀑布落差明顯，遊客比 Lynn Canyon 少得多。2025 年 Reddit 推薦為「想拍美照又不想人擠人」的最佳選擇。",
+ transit:["需自駕：→ West Vancouver → Cypress Falls Park","約 25–30 分鐘車程"],
+ dur:"來回約 2–2.5 小時",permit:null,
+ chal:"停車位有限；雨後路面非常濕滑；瀑布邊緣不設護欄，務必小心。",
+ gearBasic:true,gear:"防水抓地健行鞋（必要）、飲用水、防雨外套、相機",
+ scenery:"上下兩段瀑布氣勢各異，苔蘚覆蓋的岩石與清澈溪水構成夢幻自然景色。",
+ maps:"https://maps.google.com/?q=Cypress+Falls+Park+West+Vancouver+BC"},
+
+{id:16,cat:"driving",name:"惠特克里夫公園 Whytecliff Park",diff:1,bear:false,wc:3,wcNote:"停車場旁有固定洗手間；公園面積小，步道短，設施可達",
+ img:"https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&auto=format&fit=crop&q=80",
+ why:"潛水聖地兼海岸健行寶地，大溫唯一海洋保護區。岩岸潮池豐富多彩，是潛水者、攝影師、賞景者的最愛。",
+ transit:["需自駕：→ Horseshoe Bay → Marine Drive 西行","約 30–35 分鐘車程"],
+ dur:"輕鬆散步 1–1.5 小時",permit:null,
+ chal:"岩石濕滑，請穿抓地力好的鞋；夏季停車緊張。",
+ gearBasic:true,gear:"輕便運動鞋（防水更佳）、飲用水、相機",
+ scenery:"Howe Sound 海水清澈見底，Anvil Island 遙遙相對，岩礁間海星、海膽繁多，落日時分金光灑在海面。",
+ maps:"https://maps.google.com/?q=Whytecliff+Park+West+Vancouver+BC"},
+
+{id:17,cat:"driving",name:"默林環線 Murrin Loop & Stawamus Viewpoint",diff:2,bear:false,wc:3,wcNote:"Murrin Provincial Park 停車場有基本洗手間；步道途中無廁所",
+ img:"https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=800&auto=format&fit=crop&q=80",
+ why:"Squamish 公路沿線的攀岩與健行勝地，步道俯瞰湖面與 Howe Sound，是前往惠斯勒途中最值得停留的秘境。",
+ transit:["需自駕：→ Sea-to-Sky Hwy 99 → Murrin Provincial Park","約 60–70 分鐘車程"],
+ dur:"來回約 2–2.5 小時",permit:null,
+ chal:"停車位非常有限（路邊少量位置）；山路彎道多。",
+ gearBasic:true,gear:"健行鞋、飲用水、防曬乳、相機",
+ scenery:"從岩頂俯瞰 Browning Lake 翡翠色湖面與 Howe Sound 峽灣，遠處 Stawamus Chief 巨大花崗岩壁令人震撼。",
+ maps:"https://maps.google.com/?q=Murrin+Provincial+Park+BC"},
+
+{id:20,cat:"driving",name:"狄耶斯10景 Diez Vistas (Buntzen Lake)",diff:3,bear:true,wc:4,wcNote:"Buntzen Lake 停車場及湖區有固定洗手間，完善且定期維護",
+ img:"https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&auto=format&fit=crop&q=80",
+ why:"顧名思義「十個絕景」，沿途多個角度俯瞰 Indian Arm 峽灣。Reddit 評論一致稱讚其「每隔幾百公尺就有新景色」，是大溫「景色密度最高」的路線。",
+ transit:["需自駕：→ Hwy 7A → Anmore → Buntzen Lake Recreation Area","約 35–45 分鐘車程"],
+ dur:"來回或環線約 4–5 小時",permit:"parking",permitNote:"Buntzen Lake 停車場收費約 $5–10；夏季非常擁擠，建議早到",
+ chal:"路線標示部分岔路不清晰，需配合 AllTrails；停車場週末早滿；路程較長注意補水。",
+ gearBasic:false,gear:"🔴 進階裝備：登山鞋、登山杖、飲用水 2L、零食補給、離線地圖（AllTrails）、防雨外套、防熊噴霧",
+ scenery:"十個展望台各有不同角度的 Indian Arm 峽灣美景，湛藍海灣、山脈、峽灣島嶼構成層次豐富的全景圖。",
+ maps:"https://maps.google.com/?q=Diez+Vistas+Trail+Buntzen+Lake+BC"},
+
+{id:21,cat:"driving",name:"喬弗湖 Joffre Lakes",diff:3,bear:true,wc:4,wcNote:"停車場及 Upper Lake 附近有廁所（pit toilet），設施基本但可用；有熊防食物儲存桶",
+ img:"https://images.unsplash.com/photo-1548777123-e216912df7d8?w=800&auto=format&fit=crop&q=80",
+ why:"全 BC 省最夢幻的冰河湖泊之一，冰川融水染成的奇幻藍綠色，是 2025 年 IG、小紅書溫哥華健行版年度最多人打卡的一張圖。有「大溫最難搶的健行通行證」之稱。",
+ transit:["需自駕：→ Sea-to-Sky Hwy 99 → Pemberton 方向 → Joffre Lakes Provincial Park","約 2.5–3 小時車程"],
+ dur:"來回約 4–5 小時（三個湖全走）",permit:"daypass",permitNote:"⚠️ 夏季必須提前預約 BC Parks Trail Pass（每人，免費），每天早上 7 點開放預約，請至 bcparks.ca",
+ chal:"Trail Pass 極難預約；路況雨後濕滑；無手機訊號；禁止攜帶狗。",
+ gearBasic:false,gear:"🔴 進階裝備：登山鞋（防水，必要）、登山杖、飲用水 2L、防熊噴霧（強烈建議）、零食補給、保暖防雨外套、離線地圖、急救包",
+ scenery:"三個湖泊各有其美：第一湖映照雪山，第二湖冰川近在眼前，第三湖的冰河藍綠色澤如夢似幻，是 BC 省最具「仙境感」的健行終點。",
+ maps:"https://maps.google.com/?q=Joffre+Lakes+Provincial+Park+BC"},
+
+{id:22,cat:"driving",name:"加里波第湖 Garibaldi Lake",diff:4,bear:true,wc:3,wcNote:"登山口停車場有廁所；步道終點有基本設施；來回 18 公里中途無廁所，出發前務必使用",
+ img:"https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&auto=format&fit=crop&q=80",
+ why:"BC 省最知名的高山湖泊健行，湖水的超夢幻青藍色是全球健行雜誌封面常客。Reddit 稱之為「一生必走的 BC 省健行路線」，每年夏季吸引全球旅人。",
+ transit:["需自駕：→ Sea-to-Sky Hwy 99 → Squamish 以北 → Rubble Creek 登山口","約 1.5–2 小時車程"],
+ dur:"來回約 6–8 小時",permit:"daypass",permitNote:"⚠️ 夏季旺季（6–10月）必須提前預約 BC Parks Day-Use Pass（車輛通行證），至 bcparks.ca 預約，開放時間搶手",
+ chal:"爬升大且距離長（來回約 18 公里），需良好體能；全程無補給；天氣變化快；無手機訊號。",
+ gearBasic:false,gear:"🔴 進階裝備必備：專業登山鞋、登山杖（必要）、飲用水 3L+、高能量乾糧充足、防熊噴霧（強烈建議）、保暖防雨殼、離線地圖（AllTrails 必備）、急救包、頭燈",
+ scenery:"湖面呈現令人屏息的冰川藍綠色，背後 Garibaldi 火山與 Sphinx Glacier 冰川巍然矗立，湖岸草地野花盛開（7–8月）。",
+ maps:"https://maps.google.com/?q=Garibaldi+Lake+BC"},
+
+{id:23,cat:"driving",name:"仙農瀑布 Shannon Falls",diff:1,bear:false,wc:5,wcNote:"Shannon Falls 省立公園設有無障礙現代化洗手間，整潔度高，全年開放",
+ img:"https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?w=800&auto=format&fit=crop&q=80",
+ why:"BC 省第三高瀑布，壯觀程度超出想像，從停車場步行 10 分鐘即達瀑布底部，是大溫「最高 CP 值」瀑布景點，幾乎所有 YouTube 溫哥華旅遊頻道都會推薦。",
+ transit:["需自駕：→ Sea-to-Sky Hwy 99 → Squamish → Shannon Falls Provincial Park","約 1 小時車程"],
+ dur:"來回約 30–45 分鐘",permit:null,
+ chal:"夏季遊客極多，停車場週末爆滿；瀑布底部水霧大；不可攀爬瀑布岩石（有意外紀錄）。",
+ gearBasic:true,gear:"任何鞋子、飲用水、防水外套（瀑布近處水霧大）",
+ scenery:"335 公尺高的巨型瀑布從懸崖直瀉而下，轟鳴聲從遠處即可聽見，水霧在陽光下形成彩虹，背後 Stawamus Chief 花崗岩壁更增添壯觀氣勢。",
+ maps:"https://maps.google.com/?q=Shannon+Falls+Squamish+BC"},
+
+{id:24,cat:"driving",name:"斯塔瓦姆斯酋長岩 Stawamus Chief Peak 1",diff:4,bear:true,wc:3,wcNote:"登山口附近及露營地有 pit toilet；步道途中無廁所，出發前務必使用",
+ img:"https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&auto=format&fit=crop&q=80",
+ why:"北美第二大花崗岩單體巨岩，攀登 Stawamus Chief 是 BC 省最具成就感的健行體驗。Reddit 稱其為「付出最多汗水、得到最多震撼」的路線。",
+ transit:["需自駕：→ Sea-to-Sky Hwy 99 → Squamish → Stawamus Chief Provincial Park","約 1 小時車程"],
+ dur:"來回約 3–4 小時（第一峰）",permit:null,
+ chal:"多段垂直爬升需拉鐵鍊，非常消耗體力；懼高者不建議；岩石雨後極滑，切勿雨天攀登；頂部無遮蔽。",
+ gearBasic:false,gear:"🔴 進階裝備必備：專業登山鞋（防滑底）、登山手套、飲用水 2L、高能量補給、防風保暖外套、離線地圖、急救包",
+ scenery:"整個 Squamish 小鎮、Howe Sound 峽灣及遠方 Tantalus Range 雪山盡收眼底，是大溫周邊「最有成就感」的峰頂視野。",
+ maps:"https://maps.google.com/?q=Stawamus+Chief+Squamish+BC"},
+
+{id:26,cat:"driving",name:"米納卡達高山結 Minnekhada High Knoll",diff:2,bear:false,wc:3,wcNote:"Minnekhada Regional Park 入口停車場有廁所；步道途中無廁所",
+ img:"https://images.unsplash.com/photo-1448375240586-882707db888b?w=800&auto=format&fit=crop&q=80",
+ why:"Port Coquitlam 後山的隱藏展望台，高山結頂部俯瞰 Pitt River 濕地平原，是大溫東部最具代表性的濕地鳥瞰景觀，也是賞鷹聖地。",
+ transit:["需自駕：→ Hwy 1 → Port Coquitlam → Minnekhada Regional Park","約 30–40 分鐘車程"],
+ dur:"來回約 2.5–3.5 小時",permit:null,
+ chal:"步道部分路段標示不清，建議搭配 AllTrails；雨後路面泥濘濕滑。",
+ gearBasic:true,gear:"健行鞋（防水更佳）、飲用水、望遠鏡（賞鷹推薦）、離線地圖",
+ scenery:"High Knoll 頂部俯瞰廣闊 Pitt River 濕地、蜿蜒水道與遠方 Golden Ears 山脈，秋冬候鳥季節景色尤其壯觀。",
+ maps:"https://maps.google.com/?q=Minnekhada+Regional+Park+BC"},
+
+{id:27,cat:"driving",name:"林德曼湖 Lindeman Lake (Chilliwack)",diff:2,bear:true,wc:3,wcNote:"停車場附近有基本廁所；步道途中無廁所",
+ img:"https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&auto=format&fit=crop&q=80",
+ why:"Fraser Valley 最美的高山綠松石湖泊，被 Reddit 稱為「東門的 Joffre」。比 Joffre 更容易前往（目前無需 Trail Pass），深受家庭和初次健行者推薦。",
+ transit:["需自駕：→ Trans-Canada Hwy 1 → Chilliwack → Lindeman Lake 登山口","約 1.5–2 小時車程"],
+ dur:"來回約 2–3 小時",permit:null,
+ chal:"停車位有限，週末需早到；道路最後一段可能崎嶇，高底盤車輛更適合。",
+ gearBasic:true,gear:"健行鞋（防水更佳）、飲用水 2L、防熊噴霧（建議）、零食補給、防雨外套",
+ scenery:"高山環抱的翡翠綠松石湖泊，湖水清澈見底，湖畔大石頭是休息拍照的最佳地點，往上繼續走可到達 Greendrop Lake。",
+ maps:"https://maps.google.com/?q=Lindeman+Lake+Chilliwack+BC"},
+
+{id:29,cat:"driving",name:"品牌佳草甸 Brandywine Meadows",diff:3,bear:true,wc:3,wcNote:"登山口停車場附近有基本廁所；高山草甸途中無廁所，出發前務必使用",
+ img:"https://images.unsplash.com/photo-1418985991508-e47386d96a71?w=800&auto=format&fit=crop&q=80",
+ why:"Whistler 周邊最美高山草甸，7–8 月野花盛開期是 BC 省最令人窒息的景色之一。Reddit 和 IG 上被稱為「Whistler 最值得繞道的秘境」。",
+ transit:["需自駕：→ Sea-to-Sky Hwy 99 → Brandywine Falls Provincial Park 附近登山口","約 1.5–2 小時車程"],
+ dur:"來回約 4–5 小時",permit:null,
+ chal:"林道需高底盤或 4WD；積雪期長，7 月後才穩定通道；高海拔天氣多變。",
+ gearBasic:false,gear:"🔴 進階裝備：登山鞋（防水防滑）、登山杖、飲用水 2L、防熊噴霧（建議）、保暖防雨外套（高山必備）、零食補給、離線地圖、急救包",
+ scenery:"廣闊高山草甸在夏季盛開野花毯，遠處 Brandywine 火山輪廓雄偉，草甸中靜謐湖泊倒映藍天雪山，是 BC 省中部最具「天空之境」感的高山景觀。",
+ maps:"https://maps.google.com/?q=Brandywine+Meadows+BC"}
+];
+
+/* ── STATE ── */
+let tab='all', q='', hlId=null;
+
+/* ── HELPERS ── */
+function diffHtml(n){
+  const cls=n<=2?'e':n===3?'m':'h';
+  const lbl=n<=2?'簡單':n===3?'中等':n===4?'困難':'極難';
+  return`<span style="font-size:.92rem;letter-spacing:2px">${'🌲'.repeat(n)}</span><span class="diff-tag ${cls}">${lbl}</span>`;
+}
+function wcHtml(t){
+  const s='★'.repeat(t.wc)+'☆'.repeat(5-t.wc);
+  return`<div class="wc-row"><span class="sgl">🚻&nbsp;</span><span class="wc-stars">${s}</span><span class="wc-label" style="margin-left:4px">${t.wcNote}</span></div>`;
+}
+function permitHtml(t){
+  if(!t.permit)return'';
+  const icon=t.permit==='parking'?'🅿️ 停車費/預約':'🎫 通行證/預約';
+  return`<div><div class="slbl2" style="margin-top:2px">${icon}</div><div class="det">${t.permitNote}</div></div>`;
+}
+function transitHtml(t){
+  return`<ul class="tlist">${t.transit.map(l=>`<li>${l}</li>`).join('')}</ul>`;
+}
+function getList(){
+  let list=T;
+  if(tab==='skytrain') list=list.filter(t=>t.cat==='skytrain');
+  else if(tab==='transit') list=list.filter(t=>t.cat==='transit');
+  else if(tab==='driving') list=list.filter(t=>t.cat==='driving');
+  if(q.trim()){
+    const lq=q.toLowerCase();
+    list=list.filter(t=>t.name.toLowerCase().includes(lq)||t.why.toLowerCase().includes(lq)||t.scenery.toLowerCase().includes(lq)||(t.gear||'').toLowerCase().includes(lq)||t.chal.toLowerCase().includes(lq));
+  }
+  return list;
+}
+
+/* ── CARD ── */
+function cardHtml(t){
+  const isHard=t.diff>=3;
+  const hl=t.id===hlId?' hl':'';
+  let catB='';
+  if(t.cat==='skytrain') catB=`<span class="badge bsk">🚇 出站即走（${t.walkMin}分）</span>`;
+  else if(t.cat==='transit') catB='<span class="badge bt">🚌 大眾運輸可達</span>';
+  else catB='<span class="badge bd">🚗 需要開車</span>';
+  const advB=isHard?'<span class="badge ba">⚠️ 進階挑戰</span>':'';
+  const bearB=t.bear?'<span class="badge bb">🐻 熊出沒！</span>':'';
+  const hasPermit=!!t.permit;
+  let icon='🚗',tlbl='自駕（起點：Patterson 站）';
+  if(t.cat==='skytrain'){icon='🚇';tlbl=`SkyTrain 出站即走（${t.station}）`;}
+  else if(t.cat==='transit'){icon='🚌';tlbl='大眾運輸（起點：Patterson 站）';}
+  const infoBlock=hasPermit
+    ?`<div class="igrid"><div><div class="slbl2">⏱ 時間</div><div class="det">${t.dur}</div></div><div>${permitHtml(t)}</div></div>`
+    :`<div><div class="slbl2">⏱ 時間</div><div class="det">${t.dur}</div></div>`;
+  return`
+<div class="card${hl}" id="c${t.id}">
+  <div class="iwrap">
+    <img src="${t.img}" alt="${t.name}" loading="lazy"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="img-err" style="display:none"><span>🌲</span><span>${t.name}</span></div>
+    <div class="cbadges">${catB}${advB}${bearB}</div>
+    <div class="cnum">#${t.id}</div>
+  </div>
+  <div class="cbody">
+    <div>
+      <h3 class="ctitle">${t.name}</h3>
+      <div class="srow"><span class="sgl">難度&nbsp;</span>${diffHtml(t.diff)}</div>
+      ${wcHtml(t)}
+    </div>
+    <div class="why">${t.why}</div>
+    <hr class="dv">
+    ${infoBlock}
+    <div><div class="slbl2">${icon} ${tlbl}</div>${transitHtml(t)}</div>
+    <div><div class="slbl2">⚡ 困難點與注意事項</div><div class="det">${t.chal}</div></div>
+    <div>
+      <button class="gbtn" onclick="tg(${t.id})">${t.gearBasic?'🎒 建議裝備（點擊展開）':'🔴 進階裝備清單（點擊展開）'}</button>
+      <div class="gbody" id="g${t.id}">${t.gear}</div>
+    </div>
+    <div><div class="slbl2">🏔 終點絕景</div><div class="det">${t.scenery}</div></div>
+    <div><a class="mlink" href="${t.maps}" target="_blank" rel="noopener">📍 Google Maps 導航</a></div>
+  </div>
+</div>`;
+}
+
+/* ── COUNTS ── */
+function updateCounts(){
+  document.getElementById('ca').textContent=T.length;
+  document.getElementById('csk').textContent=T.filter(t=>t.cat==='skytrain').length;
+  document.getElementById('ct').textContent=T.filter(t=>t.cat==='transit').length;
+  document.getElementById('cd').textContent=T.filter(t=>t.cat==='driving').length;
+}
+
+/* ── RENDER ── */
+function render(){
+  const list=getList();
+  const grid=document.getElementById('grid');
+  const rc=document.getElementById('rc');
+  updateCounts();
+  if(!list.length){grid.innerHTML='';document.getElementById('emp').style.display='block';rc.textContent='找不到符合的路線';return}
+  document.getElementById('emp').style.display='none';
+  grid.innerHTML=list.map(cardHtml).join('');
+  rc.textContent=`顯示 ${list.length} 條路線`;
+}
+function tg(id){document.getElementById('g'+id).classList.toggle('open')}
+
+/* ── LUCKY ── */
+document.getElementById('lb').addEventListener('click',()=>{
+  const ov=document.getElementById('ov'),nm=document.getElementById('rnm'),sp=document.getElementById('rsp');
+  ov.classList.add('on');
+  const em=['🌲','🏔️','🌊','🦅','🌿','🗺️','🥾','⛰️','🌄'];
+  let elapsed=0;
+  const iv=setInterval(()=>{
+    const r=T[Math.floor(Math.random()*T.length)];
+    nm.textContent=r.name;sp.textContent=em[Math.floor(Math.random()*em.length)];
+    elapsed+=110;
+    if(elapsed>=2400){
+      clearInterval(iv);
+      const ch=T[Math.floor(Math.random()*T.length)];
+      nm.textContent='🎉 '+ch.name;sp.textContent='🎯';sp.style.animation='none';
+      setTimeout(()=>{
+        ov.classList.remove('on');sp.style.animation='';
+        tab=ch.cat;q='';document.getElementById('si').value='';
+        document.querySelectorAll('.tbtn').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));
+        hlId=ch.id;render();
+        setTimeout(()=>{const el=document.getElementById('c'+ch.id);if(el)el.scrollIntoView({behavior:'smooth',block:'center'})},200);
+        setTimeout(()=>{hlId=null;render()},5000);
+      },1300);
+    }
+  },110);
+});
+document.getElementById('ov').addEventListener('click',e=>{if(e.target===e.currentTarget)e.currentTarget.classList.remove('on')});
+document.querySelectorAll('.tbtn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    tab=btn.dataset.tab;
+    document.querySelectorAll('.tbtn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');hlId=null;render();
+  });
+});
+document.getElementById('si').addEventListener('input',e=>{
+  q=e.target.value;tab='all';
+  document.querySelectorAll('.tbtn').forEach(b=>b.classList.toggle('active',b.dataset.tab==='all'));
+  render();
+});
+render();
+</script>
+</body>
+</html>
