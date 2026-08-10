@@ -89,6 +89,22 @@ footer{background:var(--forest);color:rgba(255,255,255,.42);text-align:center;pa
 ::-webkit-scrollbar{width:6px}
 ::-webkit-scrollbar-track{background:#f5f0e8}
 ::-webkit-scrollbar-thumb{background:var(--moss);border-radius:3px}
+
+.filters{margin:14px auto 4px;max-width:900px;display:flex;flex-direction:column;gap:8px}
+.frow{display:flex;flex-wrap:wrap;gap:6px;align-items:center;justify-content:center}
+.flbl{font-size:.72rem;font-weight:800;opacity:.75;letter-spacing:.05em;margin-right:4px}
+.fbtn{border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.07);color:inherit;
+ border-radius:999px;padding:4px 11px;font-size:.72rem;font-weight:700;cursor:pointer;
+ transition:all .15s;font-family:inherit;line-height:1.5}
+.fbtn:hover{background:rgba(255,255,255,.16)}
+.fbtn.active{background:#fff;color:#14532d;border-color:#fff}
+.srcline{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
+.stag{font-size:.65rem;font-weight:700;padding:2px 7px;border-radius:999px;
+ background:rgba(16,185,129,.12);color:#047857;border:1px solid rgba(16,185,129,.28)}
+.lvtag{font-size:.68rem;font-weight:800;padding:2px 8px;border-radius:999px;margin-left:6px}
+.lv1{background:#dcfce7;color:#166534}.lv2{background:#fef3c7;color:#92400e}.lv3{background:#fee2e2;color:#991b1b}
+@media(max-width:640px){.flbl{width:100%;text-align:center;margin:2px 0 0}}
+
 </style>
 </head>
 <body>
@@ -102,13 +118,19 @@ footer{background:var(--forest);color:rgba(255,255,255,.42);text-align:center;pa
   <div class="hin">
     <p class="eyebrow">Metro Vancouver · 2025–2026</p>
     <h1 class="htitle">今天去哪裡 Hiking？</h1>
-    <p class="hsub">大溫哥華精選路線 · 洗手間 ≥ 3 星 · Reddit + 在地人推薦</p>
+    <p class="hsub">63 條精選路線 · 地區／難易度／推薦來源三重篩選 · 小紅書 + IG + Reddit + 在地人</p>
     <div class="swrap"><input id="si" class="sinput" type="text" placeholder="🔍  搜尋路線名稱、特色…"></div>
     <div class="tabs">
       <button class="tbtn active" data-tab="all">全部 <span class="tcnt" id="ca"></span></button>
       <button class="tbtn" data-tab="skytrain">🚇 出站即走 <span class="tcnt" id="csk"></span></button>
       <button class="tbtn" data-tab="transit">🚌 大眾運輸 <span class="tcnt" id="ct"></span></button>
       <button class="tbtn" data-tab="driving">🚗 需要開車 <span class="tcnt" id="cd"></span></button>
+    </div>
+
+    <div class="filters">
+      <div class="frow"><span class="flbl">📍 地區</span><button class="fbtn active" data-area="all">全部</button><button class="fbtn" data-area="downtown">🌆 市中心</button><button class="fbtn" data-area="vancouver">🍁 溫哥華市</button><button class="fbtn" data-area="burnaby">🌳 本拿比</button><button class="fbtn" data-area="richmond">🌊 列治文</button><button class="fbtn" data-area="newwest">🏛 新西敏</button><button class="fbtn" data-area="northshore">🏔 北岸（北溫/西溫）</button><button class="fbtn" data-area="tricities">🏞 三聯市（高貴林/滿地寶）</button><button class="fbtn" data-area="surrey">🕊 素里/三角洲/白石</button><button class="fbtn" data-area="langley">🐴 蘭里/楓樹嶺</button><button class="fbtn" data-area="seatosky">⛰ Squamish / Sea-to-Sky</button><button class="fbtn" data-area="fraser">🌲 菲沙河谷</button></div>
+      <div class="frow"><span class="flbl">🥾 難易度</span><button class="fbtn active" data-lvl="all">全部</button><button class="fbtn" data-lvl="1">🟢 初級（2 小時內）</button><button class="fbtn" data-lvl="2">🟡 中級</button><button class="fbtn" data-lvl="3">🔴 高級（需登山杖／進階）</button></div>
+      <div class="frow"><span class="flbl">⭐ 推薦來源</span><button class="fbtn active" data-src="all">全部</button><button class="fbtn" data-src="xhs">📕 小紅書熱門</button><button class="fbtn" data-src="ig">📸 IG / KOL 打卡</button><button class="fbtn" data-src="reddit">👥 Reddit 在地社群</button><button class="fbtn" data-src="local">🏡 在地人日常</button></div>
     </div>
     <button class="lbtn" id="lb">🎲 今天去哪裡？幫我隨機抽一條！</button>
   </div>
@@ -127,7 +149,7 @@ footer{background:var(--forest);color:rgba(255,255,255,.42);text-align:center;pa
 </main>
 <footer>
   <div class="ft">今天去哪裡 Hiking · 大溫哥華精選指南</div>
-  圖片來源：Wikimedia Commons（CC授權）· 資料：Reddit r/vancouverhiking · AllTrails · BC Parks · 2025–2026<br>
+  圖片來源：Wikimedia Commons（CC授權）· 資料：Reddit r/vancouverhiking · 小紅書 / IG 在地分享 · AllTrails · BC Parks · Metro Vancouver Regional Parks · 10Adventures（2026）<br>
   洗手間評分基於 vancouvertrails.com 及實地報告，低於 3 星路線已移除。<br>
   <span style="color:rgba(255,255,255,.25)">🚇 出站即走 = 出 SkyTrain 無需轉車，步行即達，可走 ≥1 小時</span>
 </footer>
@@ -139,7 +161,7 @@ footer{background:var(--forest);color:rgba(255,255,255,.42);text-align:center;pa
 const T=[
 
 /* ══ 🚇 出站即走 ══════════════════════════════════════════ */
-{id:31,cat:"skytrain",name:"本拿比湖環湖步道 Burnaby Lake Loop",
+{id:31,area:"burnaby",lvl:1,src:["local", "reddit"],cat:"skytrain",name:"本拿比湖環湖步道 Burnaby Lake Loop",
  walkMin:8,station:"Sperling–Burnaby Lake 站",diff:1,bear:false,wc:4,wcNote:"多處永久洗手間（運動場、南岸、自然中心）",
  img:"https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&auto=format&fit=crop&q=80",
  why:"從 Sperling–Burnaby Lake 站出站步行 8 分鐘即進入公園，全程 10 公里環湖，沿途賞鷺、水獺，洗手間設施完善，最適合出站即走的自然體驗。",
@@ -150,7 +172,7 @@ const T=[
  scenery:"寬闊湖面，Piper Spit 木棧道伸入水中，大藍鷺、天鵝環繞，遠眺北岸山脈。",
  maps:"https://maps.google.com/?q=Sperling+Burnaby+Lake+SkyTrain"},
 
-{id:32,cat:"skytrain",name:"中央公園 Central Park Burnaby",
+{id:32,area:"burnaby",lvl:1,src:["local"],cat:"skytrain",name:"中央公園 Central Park Burnaby",
  walkMin:5,station:"Patterson 站",diff:1,bear:false,wc:4,wcNote:"固定洗手間，定期清潔維護",
  img:"https://images.unsplash.com/photo-1448375240586-882707db888b?w=800&auto=format&fit=crop&q=80",
  why:"Patterson 站出站步行 5 分鐘即達，90 公頃城市森林，有池塘、玫瑰園、雪松步道。洗手間乾淨，是下班後「微健行」首選。",
@@ -161,7 +183,7 @@ const T=[
  scenery:"雪松、花旗松高聳，池塘邊野鴨嬉戲，玫瑰園盛開時香氣四溢。",
  maps:"https://maps.google.com/?q=Central+Park+Burnaby+BC"},
 
-{id:33,cat:"skytrain",name:"新西敏河岸步道 Westminster Waterfront",
+{id:33,area:"newwest",lvl:1,src:["local"],cat:"skytrain",name:"新西敏河岸步道 Westminster Waterfront",
  walkMin:3,station:"New Westminster 站",diff:1,bear:false,wc:5,wcNote:"Westminster Pier Park 設有現代化洗手間，全年開放",
  img:"https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=800&auto=format&fit=crop&q=80",
  why:"出站 3 分鐘即達 Fraser River 河岸。Westminster Pier Park + Waterfront Esplanade 共 2.5 公里步道，洗手間完善，是大溫最方便的河岸散步路線。",
@@ -172,7 +194,7 @@ const T=[
  scenery:"Fraser River 寬闊河面，對岸山脈連綿，Pier Park 藝術裝置與木棧道極具特色，夏季可見鮭魚洄游。",
  maps:"https://maps.google.com/?q=Westminster+Pier+Park+New+Westminster"},
 
-{id:34,cat:"skytrain",name:"皇后公園 Queen's Park New Westminster",
+{id:34,area:"newwest",lvl:1,src:["local"],cat:"skytrain",name:"皇后公園 Queen's Park New Westminster",
  walkMin:12,station:"New Westminster 站",diff:1,bear:false,wc:4,wcNote:"公園內固定洗手間，維護良好",
  img:"https://images.unsplash.com/photo-1474552226712-ac0f0961a954?w=800&auto=format&fit=crop&q=80",
  why:"BC 省第一座公立公園（1887年），75 英畝，有玫瑰園、噴水廣場、步道。結合河岸步道可輕鬆走超過 1.5 小時。",
@@ -183,7 +205,7 @@ const T=[
  scenery:"BC 省最古老公園，玫瑰園花色繽紛，歷史展示牌述說新西敏故事，露天音樂台夏季定期演出。",
  maps:"https://maps.google.com/?q=Queen%27s+Park+New+Westminster+BC"},
 
-{id:35,cat:"skytrain",name:"BC Parkway 綠道",
+{id:35,area:"burnaby",lvl:1,src:["local"],cat:"skytrain",name:"BC Parkway 綠道",
  walkMin:1,station:"Patterson / Metrotown / Royal Oak / Edmonds 站",diff:1,bear:false,wc:3,wcNote:"沿線各站附近有公共洗手間，站間路段無固定設施",
  img:"https://images.unsplash.com/photo-1512036666432-2181c1f26420?w=800&auto=format&fit=crop&q=80",
  why:"沿 Expo Line 延伸的都市綠道，從 New Westminster Quay 橫跨 Burnaby 至 False Creek，全長 24 公里。任一 Expo Line 站出站 1 分鐘即可接上步道，想走多長自己決定。",
@@ -195,7 +217,7 @@ const T=[
  maps:"https://maps.google.com/?q=BC+Parkway+Trail+Burnaby+BC"},
 
 /* ══ 🚌 大眾運輸可達 ══════════════════════════════════════ */
-{id:1,cat:"transit",name:"採石場岩 Quarry Rock",diff:2,bear:false,wc:3,wcNote:"步道上無廁所；Deep Cove 海灘附近有固定洗手間（起點前可用）",
+{id:1,area:"northshore",lvl:2,src:["xhs", "ig", "reddit"],cat:"transit",name:"採石場岩 Quarry Rock",diff:2,bear:false,wc:3,wcNote:"步道上無廁所；Deep Cove 海灘附近有固定洗手間（起點前可用）",
  img:"https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&auto=format&fit=crop&q=80",
  why:"大溫最受歡迎入門路線，終點岩石俯瞰 Indian Arm 峽灣是 IG 打卡聖地。2025 年 Reddit r/vancouverhiking 每週必推「給第一次來溫哥華的朋友」。",
  transit:["Patterson 站 → Canada Line → Waterfront 站","轉 SeaBus → Lonsdale Quay","轉 C15 公車 → Deep Cove（建議 Google Maps 確認班次）","步行至登山口約 5 分鐘，含交通共約 1 小時 15 分"],
@@ -205,7 +227,7 @@ const T=[
  scenery:"站在大岩石上俯瞰碧藍的 Indian Arm 峽灣全景，遠方山脈連綿，晴天可見 Golden Ears。",
  maps:"https://maps.google.com/?q=Quarry+Rock+Deep+Cove+BC"},
 
-{id:2,cat:"transit",name:"鹿湖步道 Deer Lake Trail",diff:1,bear:false,wc:4,wcNote:"湖畔藝術中心及多處固定洗手間，乾淨維護良好",
+{id:2,area:"burnaby",lvl:1,src:["local", "xhs"],cat:"transit",name:"鹿湖步道 Deer Lake Trail",diff:1,bear:false,wc:4,wcNote:"湖畔藝術中心及多處固定洗手間，乾淨維護良好",
  img:"https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&auto=format&fit=crop&q=80",
  why:"Burnaby 最親民的城市綠洲，適合帶狗、推嬰兒車。小紅書溫哥華生活版年度推薦，湖邊藝術中心讓路線不只是健行。",
  transit:["Metrotown 站 → 144 公車 → Shadbolt Centre（約 15 分）","或 Patterson 站步行約 20 分鐘"],
@@ -215,7 +237,7 @@ const T=[
  scenery:"湖面倒映著四周樹木與天空，春夏滿是野花，秋天楓葉落在水面。",
  maps:"https://maps.google.com/?q=Deer+Lake+Park+Burnaby+BC"},
 
-{id:3,cat:"transit",name:"本拿比湖 Burnaby Lake (Piper Spit)",diff:1,bear:false,wc:4,wcNote:"多處永久洗手間（運動場、南岸 Glencarin、自然中心），維護穩定",
+{id:3,area:"burnaby",lvl:1,src:["local"],cat:"transit",name:"本拿比湖 Burnaby Lake (Piper Spit)",diff:1,bear:false,wc:4,wcNote:"多處永久洗手間（運動場、南岸 Glencarin、自然中心），維護穩定",
  img:"https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&auto=format&fit=crop&q=80",
  why:"賞鳥天堂，大溫最重要濕地保護區之一。Piper Spit 木棧道是拍攝蒼鷺、水獺的絕佳地點，也可從 Sperling 站直接步行前往。",
  transit:["Sperling–Burnaby Lake 站步行約 8 分鐘即達","或從 Production Way 站步行約 20 分鐘"],
@@ -225,7 +247,7 @@ const T=[
  scenery:"廣闊湖面濕地，大藍鷺、天鵝、野鴨環繞，清晨薄霧飄散在水面，極具療癒感。",
  maps:"https://maps.google.com/?q=Burnaby+Lake+Piper+Spit+BC"},
 
-{id:4,cat:"transit",name:"太平洋精神公園 Pacific Spirit Regional Park",diff:1,bear:false,wc:3,wcNote:"停車場附近有設施；步道內部無廁所，但入口處可使用",
+{id:4,area:"vancouver",lvl:1,src:["local", "reddit"],cat:"transit",name:"太平洋精神公園 Pacific Spirit Regional Park",diff:1,bear:false,wc:3,wcNote:"停車場附近有設施；步道內部無廁所，但入口處可使用",
  img:"https://images.unsplash.com/photo-1448375240586-882707db888b?w=800&auto=format&fit=crop&q=80",
  why:"UBC 旁的都市森林，超過 70 公里步道網絡，是附近居民日常森林浴勝地。2025 年 Reddit 持續推薦為最佳「清醒頭腦」路線。",
  transit:["Canada Line → 99B 公車直達 UBC","步行至公園入口約 10 分鐘，全程約 45–50 分鐘"],
@@ -235,7 +257,7 @@ const T=[
  scenery:"高聳的西部紅杉與花旗松形成天然綠色隧道，秋季楓葉金黃，結尾可前往 Wreck Beach 看海。",
  maps:"https://maps.google.com/?q=Pacific+Spirit+Regional+Park+Vancouver+BC"},
 
-{id:5,cat:"transit",name:"史丹利公園海牆 Stanley Park Seawall",diff:1,bear:false,wc:5,wcNote:"沿海牆多處現代化固定洗手間，全年開放，整潔度高",
+{id:5,area:"downtown",lvl:1,src:["xhs", "ig"],cat:"transit",name:"史丹利公園海牆 Stanley Park Seawall",diff:1,bear:false,wc:5,wcNote:"沿海牆多處現代化固定洗手間，全年開放，整潔度高",
  img:"https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&auto=format&fit=crop&q=80",
  why:"溫哥華最具代表性的公園，全球最美都市公園之一。海牆可見北岸山脈倒影、Canada Place、獅門橋，任何來溫哥華的人必走一次。",
  transit:["Canada Line → Granville 或 Vancouver City Centre 站","轉公車至 Stanley Park 入口，全程約 30–40 分鐘"],
@@ -245,7 +267,7 @@ const T=[
  scenery:"北岸山脈倒映碧藍海面，獅門橋宏偉壯麗，圖騰柱文化區充滿故事，每個轉角都是明信片級風景。",
  maps:"https://maps.google.com/?q=Stanley+Park+Vancouver+BC"},
 
-{id:6,cat:"transit",name:"卡皮拉諾峽谷 Capilano Canyon Loop",diff:2,bear:false,wc:3,wcNote:"Cleveland Dam 附近有固定洗手間；峽谷深處路段無設施",
+{id:6,area:"northshore",lvl:1,src:["xhs", "ig"],cat:"transit",name:"卡皮拉諾峽谷 Capilano Canyon Loop",diff:2,bear:false,wc:3,wcNote:"Cleveland Dam 附近有固定洗手間；峽谷深處路段無設施",
  img:"https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800&auto=format&fit=crop&q=80",
  why:"不進吊橋公園也可免費體驗卡皮拉諾峽谷！Cleveland Dam 免費路線，峽谷壁立、溪流轟鳴，Reddit 力推「高 CP 值峽谷步道」。",
  transit:["Waterfront 站轉 246 公車（夏季有 236 直達）至 Capilano Road","全程約 1 小時"],
@@ -255,7 +277,7 @@ const T=[
  scenery:"深邃峽谷中翠綠溪水奔騰，兩岸參天古木，Cleveland Dam 與遠山形成強烈對比，丁達爾光束穿透樹隙。",
  maps:"https://maps.google.com/?q=Capilano+River+Regional+Park+BC"},
 
-{id:7,cat:"transit",name:"林恩峽谷雙瀑布 Lynn Canyon Twin Falls",diff:2,bear:false,wc:4,wcNote:"生態中心及停車場附近有固定洗手間，維護良好",
+{id:7,area:"northshore",lvl:2,src:["xhs", "ig"],cat:"transit",name:"林恩峽谷雙瀑布 Lynn Canyon Twin Falls",diff:2,bear:false,wc:4,wcNote:"生態中心及停車場附近有固定洗手間，維護良好",
  img:"https://images.unsplash.com/photo-1548777123-e216912df7d8?w=800&auto=format&fit=crop&q=80",
  why:"完全免費的吊橋＋瀑布體驗！2025 年 Reddit 持續推薦為「不輸 Capilano 吊橋卻完全免費」的替代選項，CP 值大溫最高之一。",
  transit:["Waterfront 站 → SeaBus → Lonsdale Quay","轉 228 公車 → Lynn Valley Road","步行至公園入口約 10 分鐘，全程約 1 小時 10 分"],
@@ -265,7 +287,7 @@ const T=[
  scenery:"免費吊橋下方是湛藍深邃的峽谷水潭，Twin Falls 兩道瀑布轟鳴而下，水花飛濺。",
  maps:"https://maps.google.com/?q=Lynn+Canyon+Park+North+Vancouver+BC"},
 
-{id:8,cat:"transit",name:"萊斯湖 Rice Lake",diff:1,bear:false,wc:3,wcNote:"Lynn Headwaters 入口有設施；湖邊步道上無廁所，約 10 分鐘步行可達",
+{id:8,area:"northshore",lvl:1,src:["local", "reddit"],cat:"transit",name:"萊斯湖 Rice Lake",diff:1,bear:false,wc:3,wcNote:"Lynn Headwaters 入口有設施；湖邊步道上無廁所，約 10 分鐘步行可達",
  img:"https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&auto=format&fit=crop&q=80",
  why:"Lynn Headwaters Regional Park 最平易近人的湖泊步道，全無障礙木棧道，親子、輪椅、嬰兒車皆可通行，溫哥華隱藏版寶石。",
  transit:["Waterfront 站 → SeaBus → Lonsdale Quay → 228 公車 → Lynn Valley Road","步行或轉乘至公園，全程約 1 小時 20 分"],
@@ -275,7 +297,7 @@ const T=[
  scenery:"靜謐山中湖泊，水面清澈見底，倒映藍天松林，秋天金紅楓樹倒影尤其壯觀。",
  maps:"https://maps.google.com/?q=Rice+Lake+North+Vancouver+BC"},
 
-{id:9,cat:"transit",name:"燈塔公園 Lighthouse Park",diff:2,bear:false,wc:3,wcNote:"燈塔附近建築內有洗手間；步道途中無廁所，出發前務必使用",
+{id:9,area:"northshore",lvl:1,src:["xhs", "ig"],cat:"transit",name:"燈塔公園 Lighthouse Park",diff:2,bear:false,wc:3,wcNote:"燈塔附近建築內有洗手間；步道途中無廁所，出發前務必使用",
  img:"https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&auto=format&fit=crop&q=80",
  why:"西溫最壯觀的海岸峭壁步道，百年古老燈塔坐落在花崗岩礁石上，俯瞰 Strait of Georgia 海峽。Reddit 多次推薦為「溫哥華最有氣勢的海岸步道」。",
  transit:["Waterfront 站轉 250/257 公車至 Lighthouse Park 附近","全程約 1 小時 30 分（⚠️ 班次稀少，提前查好回程）"],
@@ -285,7 +307,7 @@ const T=[
  scenery:"矗立在花崗岩礁石上的白色燈塔，背後是蔚藍的海峽，晴天可見溫哥華島輪廓。",
  maps:"https://maps.google.com/?q=Lighthouse+Park+West+Vancouver+BC"},
 
-{id:10,cat:"transit",name:"BCMC Trail（免費版 Grouse Mountain）",diff:4,bear:false,wc:4,wcNote:"山腳纜車站附近及山頂 Chalet 內有良好洗手間設施",
+{id:10,area:"northshore",lvl:3,src:["reddit"],cat:"transit",name:"BCMC Trail（免費版 Grouse Mountain）",diff:4,bear:false,wc:4,wcNote:"山腳纜車站附近及山頂 Chalet 內有良好洗手間設施",
  img:"https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&auto=format&fit=crop&q=80",
  why:"Grouse Grind 免費替代路線，同樣從山腳爬到 Grouse Mountain，BCMC 不收費。是本地人的「健身步道」，Reddit 每年數百個挑戰紀錄貼文。",
  transit:["Waterfront 站轉 232 或 236 公車至 Grouse Mountain 山腳","全程約 1 小時"],
@@ -295,7 +317,7 @@ const T=[
  scenery:"登頂後俯瞰溫哥華全市、英吉利灣與遠方海峽，晴天視野延伸至 Mount Baker（美國境內）。",
  maps:"https://maps.google.com/?q=BCMC+Trail+North+Vancouver+BC"},
 
-{id:11,cat:"transit",name:"鮑文展望台 Bowen Lookout（Cypress Mountain）",diff:2,bear:false,wc:3,wcNote:"Cypress Mountain 停車場有洗手間；步道途中無廁所",
+{id:11,area:"northshore",lvl:2,src:["reddit", "ig"],cat:"transit",name:"鮑文展望台 Bowen Lookout（Cypress Mountain）",diff:2,bear:false,wc:3,wcNote:"Cypress Mountain 停車場有洗手間；步道途中無廁所",
  img:"https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&auto=format&fit=crop&q=80",
  why:"Cypress Mountain 最易親近的展望台，360 度視野俯瞰 Howe Sound、Bowen Island、溫哥華市區。2025 年小紅書最多人分享的「一小時即達絕景」路線。",
  transit:["轉公車至 Cypress Mountain（班次有季節性限制，強烈建議先 Google Maps 確認）","或考慮拼車 / 網約車前往"],
@@ -306,7 +328,7 @@ const T=[
  maps:"https://maps.google.com/?q=Bowen+Lookout+Cypress+Mountain+BC"},
 
 /* ══ 🚗 需要開車 ══════════════════════════════════════════ */
-{id:13,cat:"driving",name:"狗山 Dog Mountain (Mount Seymour)",diff:2,bear:false,wc:3,wcNote:"Mount Seymour 停車場有洗手間；步道上無廁所，出發前使用",
+{id:13,area:"northshore",lvl:2,src:["xhs", "ig", "reddit"],cat:"driving",name:"狗山 Dog Mountain (Mount Seymour)",diff:2,bear:false,wc:3,wcNote:"Mount Seymour 停車場有洗手間；步道上無廁所，出發前使用",
  img:"https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800&auto=format&fit=crop&q=80",
  why:"北溫最受歡迎的初中級路線，終點展望台俯瞰溫哥華全景、海洋、山脈。2025 年 AllTrails 和 Reddit 長期名列大溫推薦前五名。",
  transit:["需自駕：→ Mount Seymour Provincial Park","約 30–40 分鐘車程"],
@@ -316,7 +338,7 @@ const T=[
  scenery:"溫哥華市區、Burrard Inlet、英吉利灣、Gulf Islands 一覽無遺，被公認為大溫最壯觀的 360 度視野之一。",
  maps:"https://maps.google.com/?q=Dog+Mountain+Trail+Mount+Seymour+BC"},
 
-{id:14,cat:"driving",name:"黃金耳瀑布 Gold Creek Falls (Golden Ears)",diff:2,bear:true,wc:4,wcNote:"Golden Ears Provincial Park 停車場及沿途有多處固定洗手間，設施完善",
+{id:14,area:"fraser",lvl:2,src:["local", "xhs"],cat:"driving",name:"黃金耳瀑布 Gold Creek Falls (Golden Ears)",diff:2,bear:true,wc:4,wcNote:"Golden Ears Provincial Park 停車場及沿途有多處固定洗手間，設施完善",
  img:"https://images.unsplash.com/photo-1418985991508-e47386d96a71?w=800&auto=format&fit=crop&q=80",
  why:"大溫最壯觀的瀑布健行路線，Golden Ears Provincial Park 春夏水量豐沛期氣勢磅礡，Reddit 和小紅書常勝軍推薦。",
  transit:["需自駕：→ Hwy 1 → Maple Ridge → Golden Ears Provincial Park","約 60–70 分鐘車程"],
@@ -326,7 +348,7 @@ const T=[
  scenery:"溪流沿途秀麗，雙瀑布從高聳岩壁飛瀉而下，水霧飛濺，周圍古木參天，最具北美荒野感的瀑布景觀。",
  maps:"https://maps.google.com/?q=Gold+Creek+Falls+Golden+Ears+BC"},
 
-{id:15,cat:"driving",name:"柏樹瀑布 Cypress Falls",diff:2,bear:false,wc:3,wcNote:"停車場附近有基本洗手間；步道途中無廁所",
+{id:15,area:"northshore",lvl:1,src:["local"],cat:"driving",name:"柏樹瀑布 Cypress Falls",diff:2,bear:false,wc:3,wcNote:"停車場附近有基本洗手間；步道途中無廁所",
  img:"https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?w=800&auto=format&fit=crop&q=80",
  why:"西溫隱藏的瀑布寶石，兩段瀑布落差明顯，遊客比 Lynn Canyon 少得多。2025 年 Reddit 推薦為「想拍美照又不想人擠人」的最佳選擇。",
  transit:["需自駕：→ West Vancouver → Cypress Falls Park","約 25–30 分鐘車程"],
@@ -336,7 +358,7 @@ const T=[
  scenery:"上下兩段瀑布氣勢各異，苔蘚覆蓋的岩石與清澈溪水構成夢幻自然景色。",
  maps:"https://maps.google.com/?q=Cypress+Falls+Park+West+Vancouver+BC"},
 
-{id:16,cat:"driving",name:"惠特克里夫公園 Whytecliff Park",diff:1,bear:false,wc:3,wcNote:"停車場旁有固定洗手間；公園面積小，步道短，設施可達",
+{id:16,area:"northshore",lvl:1,src:["xhs", "ig"],cat:"driving",name:"惠特克里夫公園 Whytecliff Park",diff:1,bear:false,wc:3,wcNote:"停車場旁有固定洗手間；公園面積小，步道短，設施可達",
  img:"https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&auto=format&fit=crop&q=80",
  why:"潛水聖地兼海岸健行寶地，大溫唯一海洋保護區。岩岸潮池豐富多彩，是潛水者、攝影師、賞景者的最愛。",
  transit:["需自駕：→ Horseshoe Bay → Marine Drive 西行","約 30–35 分鐘車程"],
@@ -346,7 +368,7 @@ const T=[
  scenery:"Howe Sound 海水清澈見底，Anvil Island 遙遙相對，岩礁間海星、海膽繁多，落日時分金光灑在海面。",
  maps:"https://maps.google.com/?q=Whytecliff+Park+West+Vancouver+BC"},
 
-{id:17,cat:"driving",name:"默林環線 Murrin Loop & Stawamus Viewpoint",diff:2,bear:false,wc:3,wcNote:"Murrin Provincial Park 停車場有基本洗手間；步道途中無廁所",
+{id:17,area:"seatosky",lvl:2,src:["reddit"],cat:"driving",name:"默林環線 Murrin Loop & Stawamus Viewpoint",diff:2,bear:false,wc:3,wcNote:"Murrin Provincial Park 停車場有基本洗手間；步道途中無廁所",
  img:"https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=800&auto=format&fit=crop&q=80",
  why:"Squamish 公路沿線的攀岩與健行勝地，步道俯瞰湖面與 Howe Sound，是前往惠斯勒途中最值得停留的秘境。",
  transit:["需自駕：→ Sea-to-Sky Hwy 99 → Murrin Provincial Park","約 60–70 分鐘車程"],
@@ -356,27 +378,27 @@ const T=[
  scenery:"從岩頂俯瞰 Browning Lake 翡翠色湖面與 Howe Sound 峽灣，遠處 Stawamus Chief 巨大花崗岩壁令人震撼。",
  maps:"https://maps.google.com/?q=Murrin+Provincial+Park+BC"},
 
-{id:20,cat:"driving",name:"狄耶斯10景 Diez Vistas (Buntzen Lake)",diff:3,bear:true,wc:4,wcNote:"Buntzen Lake 停車場及湖區有固定洗手間，完善且定期維護",
+{id:20,area:"tricities",lvl:3,src:["reddit"],cat:"driving",name:"狄耶斯10景 Diez Vistas (Buntzen Lake)",diff:3,bear:true,wc:4,wcNote:"Buntzen Lake 停車場及湖區有固定洗手間，完善且定期維護",
  img:"https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&auto=format&fit=crop&q=80",
  why:"顧名思義「十個絕景」，沿途多個角度俯瞰 Indian Arm 峽灣。Reddit 評論一致稱讚其「每隔幾百公尺就有新景色」，是大溫「景色密度最高」的路線。",
  transit:["需自駕：→ Hwy 7A → Anmore → Buntzen Lake Recreation Area","約 35–45 分鐘車程"],
  dur:"來回或環線約 4–5 小時",permit:"parking",permitNote:"Buntzen Lake 停車場收費約 $5–10；夏季非常擁擠，建議早到",
- chal:"路線標示部分岔路不清晰，需配合 AllTrails；停車場週末早滿；路程較長注意補水。",
+ chal:"🔥 2026/8 最新：Belcarra 公園野火，BC Hydro 宣布 Buntzen Lake 遊憩區封閉至另行通知，出發前務必確認是否已重新開放。路線標示部分岔路不清晰，需配合 AllTrails；停車場週末早滿；路程較長注意補水。",
  gearBasic:false,gear:"🔴 進階裝備：登山鞋、登山杖、飲用水 2L、零食補給、離線地圖（AllTrails）、防雨外套、防熊噴霧",
  scenery:"十個展望台各有不同角度的 Indian Arm 峽灣美景，湛藍海灣、山脈、峽灣島嶼構成層次豐富的全景圖。",
  maps:"https://maps.google.com/?q=Diez+Vistas+Trail+Buntzen+Lake+BC"},
 
-{id:21,cat:"driving",name:"喬弗湖 Joffre Lakes",diff:3,bear:true,wc:4,wcNote:"停車場及 Upper Lake 附近有廁所（pit toilet），設施基本但可用；有熊防食物儲存桶",
+{id:21,area:"seatosky",lvl:3,src:["xhs", "ig"],cat:"driving",name:"喬弗湖 Joffre Lakes",diff:3,bear:true,wc:4,wcNote:"停車場及 Upper Lake 附近有廁所（pit toilet），設施基本但可用；有熊防食物儲存桶",
  img:"https://images.unsplash.com/photo-1548777123-e216912df7d8?w=800&auto=format&fit=crop&q=80",
  why:"全 BC 省最夢幻的冰河湖泊之一，冰川融水染成的奇幻藍綠色，是 2025 年 IG、小紅書溫哥華健行版年度最多人打卡的一張圖。有「大溫最難搶的健行通行證」之稱。",
  transit:["需自駕：→ Sea-to-Sky Hwy 99 → Pemberton 方向 → Joffre Lakes Provincial Park","約 2.5–3 小時車程"],
  dur:"來回約 4–5 小時（三個湖全走）",permit:"daypass",permitNote:"⚠️ 夏季必須提前預約 BC Parks Trail Pass（每人，免費），每天早上 7 點開放預約，請至 bcparks.ca",
- chal:"Trail Pass 極難預約；路況雨後濕滑；無手機訊號；禁止攜帶狗。",
+ chal:"⚠️ 2026 最新公告：全園 6/20–6/27 及 9/8–9/30 封閉；5/11–10/25 期間須持免費 Day-Use Pass 入園（bcparks.ca 出發前兩天早上 7 點開放，秒殺）。Trail Pass 極難預約；路況雨後濕滑；無手機訊號；禁止攜帶狗。",
  gearBasic:false,gear:"🔴 進階裝備：登山鞋（防水，必要）、登山杖、飲用水 2L、防熊噴霧（強烈建議）、零食補給、保暖防雨外套、離線地圖、急救包",
  scenery:"三個湖泊各有其美：第一湖映照雪山，第二湖冰川近在眼前，第三湖的冰河藍綠色澤如夢似幻，是 BC 省最具「仙境感」的健行終點。",
  maps:"https://maps.google.com/?q=Joffre+Lakes+Provincial+Park+BC"},
 
-{id:22,cat:"driving",name:"加里波第湖 Garibaldi Lake",diff:4,bear:true,wc:3,wcNote:"登山口停車場有廁所；步道終點有基本設施；來回 18 公里中途無廁所，出發前務必使用",
+{id:22,area:"seatosky",lvl:3,src:["xhs", "ig", "reddit"],cat:"driving",name:"加里波第湖 Garibaldi Lake",diff:4,bear:true,wc:3,wcNote:"登山口停車場有廁所；步道終點有基本設施；來回 18 公里中途無廁所，出發前務必使用",
  img:"https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&auto=format&fit=crop&q=80",
  why:"BC 省最知名的高山湖泊健行，湖水的超夢幻青藍色是全球健行雜誌封面常客。Reddit 稱之為「一生必走的 BC 省健行路線」，每年夏季吸引全球旅人。",
  transit:["需自駕：→ Sea-to-Sky Hwy 99 → Squamish 以北 → Rubble Creek 登山口","約 1.5–2 小時車程"],
@@ -386,7 +408,7 @@ const T=[
  scenery:"湖面呈現令人屏息的冰川藍綠色，背後 Garibaldi 火山與 Sphinx Glacier 冰川巍然矗立，湖岸草地野花盛開（7–8月）。",
  maps:"https://maps.google.com/?q=Garibaldi+Lake+BC"},
 
-{id:23,cat:"driving",name:"仙農瀑布 Shannon Falls",diff:1,bear:false,wc:5,wcNote:"Shannon Falls 省立公園設有無障礙現代化洗手間，整潔度高，全年開放",
+{id:23,area:"seatosky",lvl:1,src:["xhs", "ig"],cat:"driving",name:"仙農瀑布 Shannon Falls",diff:1,bear:false,wc:5,wcNote:"Shannon Falls 省立公園設有無障礙現代化洗手間，整潔度高，全年開放",
  img:"https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?w=800&auto=format&fit=crop&q=80",
  why:"BC 省第三高瀑布，壯觀程度超出想像，從停車場步行 10 分鐘即達瀑布底部，是大溫「最高 CP 值」瀑布景點，幾乎所有 YouTube 溫哥華旅遊頻道都會推薦。",
  transit:["需自駕：→ Sea-to-Sky Hwy 99 → Squamish → Shannon Falls Provincial Park","約 1 小時車程"],
@@ -396,7 +418,7 @@ const T=[
  scenery:"335 公尺高的巨型瀑布從懸崖直瀉而下，轟鳴聲從遠處即可聽見，水霧在陽光下形成彩虹，背後 Stawamus Chief 花崗岩壁更增添壯觀氣勢。",
  maps:"https://maps.google.com/?q=Shannon+Falls+Squamish+BC"},
 
-{id:24,cat:"driving",name:"斯塔瓦姆斯酋長岩 Stawamus Chief Peak 1",diff:4,bear:true,wc:3,wcNote:"登山口附近及露營地有 pit toilet；步道途中無廁所，出發前務必使用",
+{id:24,area:"seatosky",lvl:3,src:["xhs", "ig", "reddit"],cat:"driving",name:"斯塔瓦姆斯酋長岩 Stawamus Chief Peak 1",diff:4,bear:true,wc:3,wcNote:"登山口附近及露營地有 pit toilet；步道途中無廁所，出發前務必使用",
  img:"https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&auto=format&fit=crop&q=80",
  why:"北美第二大花崗岩單體巨岩，攀登 Stawamus Chief 是 BC 省最具成就感的健行體驗。Reddit 稱其為「付出最多汗水、得到最多震撼」的路線。",
  transit:["需自駕：→ Sea-to-Sky Hwy 99 → Squamish → Stawamus Chief Provincial Park","約 1 小時車程"],
@@ -406,7 +428,7 @@ const T=[
  scenery:"整個 Squamish 小鎮、Howe Sound 峽灣及遠方 Tantalus Range 雪山盡收眼底，是大溫周邊「最有成就感」的峰頂視野。",
  maps:"https://maps.google.com/?q=Stawamus+Chief+Squamish+BC"},
 
-{id:26,cat:"driving",name:"米納卡達高山結 Minnekhada High Knoll",diff:2,bear:false,wc:3,wcNote:"Minnekhada Regional Park 入口停車場有廁所；步道途中無廁所",
+{id:26,area:"tricities",lvl:2,src:["local", "reddit"],cat:"driving",name:"米納卡達高山結 Minnekhada High Knoll",diff:2,bear:false,wc:3,wcNote:"Minnekhada Regional Park 入口停車場有廁所；步道途中無廁所",
  img:"https://images.unsplash.com/photo-1448375240586-882707db888b?w=800&auto=format&fit=crop&q=80",
  why:"Port Coquitlam 後山的隱藏展望台，高山結頂部俯瞰 Pitt River 濕地平原，是大溫東部最具代表性的濕地鳥瞰景觀，也是賞鷹聖地。",
  transit:["需自駕：→ Hwy 1 → Port Coquitlam → Minnekhada Regional Park","約 30–40 分鐘車程"],
@@ -416,7 +438,7 @@ const T=[
  scenery:"High Knoll 頂部俯瞰廣闊 Pitt River 濕地、蜿蜒水道與遠方 Golden Ears 山脈，秋冬候鳥季節景色尤其壯觀。",
  maps:"https://maps.google.com/?q=Minnekhada+Regional+Park+BC"},
 
-{id:27,cat:"driving",name:"林德曼湖 Lindeman Lake (Chilliwack)",diff:2,bear:true,wc:3,wcNote:"停車場附近有基本廁所；步道途中無廁所",
+{id:27,area:"fraser",lvl:2,src:["xhs", "reddit"],cat:"driving",name:"林德曼湖 Lindeman Lake (Chilliwack)",diff:2,bear:true,wc:3,wcNote:"停車場附近有基本廁所；步道途中無廁所",
  img:"https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&auto=format&fit=crop&q=80",
  why:"Fraser Valley 最美的高山綠松石湖泊，被 Reddit 稱為「東門的 Joffre」。比 Joffre 更容易前往（目前無需 Trail Pass），深受家庭和初次健行者推薦。",
  transit:["需自駕：→ Trans-Canada Hwy 1 → Chilliwack → Lindeman Lake 登山口","約 1.5–2 小時車程"],
@@ -426,7 +448,7 @@ const T=[
  scenery:"高山環抱的翡翠綠松石湖泊，湖水清澈見底，湖畔大石頭是休息拍照的最佳地點，往上繼續走可到達 Greendrop Lake。",
  maps:"https://maps.google.com/?q=Lindeman+Lake+Chilliwack+BC"},
 
-{id:29,cat:"driving",name:"品牌佳草甸 Brandywine Meadows",diff:3,bear:true,wc:3,wcNote:"登山口停車場附近有基本廁所；高山草甸途中無廁所，出發前務必使用",
+{id:29,area:"seatosky",lvl:3,src:["reddit"],cat:"driving",name:"品牌佳草甸 Brandywine Meadows",diff:3,bear:true,wc:3,wcNote:"登山口停車場附近有基本廁所；高山草甸途中無廁所，出發前務必使用",
  img:"https://images.unsplash.com/photo-1418985991508-e47386d96a71?w=800&auto=format&fit=crop&q=80",
  why:"Whistler 周邊最美高山草甸，7–8 月野花盛開期是 BC 省最令人窒息的景色之一。Reddit 和 IG 上被稱為「Whistler 最值得繞道的秘境」。",
  transit:["需自駕：→ Sea-to-Sky Hwy 99 → Brandywine Falls Provincial Park 附近登山口","約 1.5–2 小時車程"],
@@ -434,7 +456,78 @@ const T=[
  chal:"林道需高底盤或 4WD；積雪期長，7 月後才穩定通道；高海拔天氣多變。",
  gearBasic:false,gear:"🔴 進階裝備：登山鞋（防水防滑）、登山杖、飲用水 2L、防熊噴霧（建議）、保暖防雨外套（高山必備）、零食補給、離線地圖、急救包",
  scenery:"廣闊高山草甸在夏季盛開野花毯，遠處 Brandywine 火山輪廓雄偉，草甸中靜謐湖泊倒映藍天雪山，是 BC 省中部最具「天空之境」感的高山景觀。",
- maps:"https://maps.google.com/?q=Brandywine+Meadows+BC"}
+ maps:"https://maps.google.com/?q=Brandywine+Meadows+BC"},
+
+/* ══ 2026 擴充路線 ══════════════════════════════════ */
+{id:101,area:"burnaby",lvl:2,src:["local", "reddit"],cat:"transit",name:"本拿比山保護區 Burnaby Mountain",walkMin:0,station:"SFU / Burnaby Mountain Pkwy 巴士",diff:2,bear:false,wc:4,wcNote:"Horizons 餐廳旁與 SFU 校園皆有固定洗手間",img:"https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&auto=format&fit=crop&q=80",why:"在地人版的 Grouse Grind。Velodrome Trail 一路陡上 SFU，人比 Grind 少很多，山頂 Playground of the Gods 圖騰柱平台可俯瞰整個 Burrard Inlet 與北岸群山。",transit:["Production Way–University 站轉 145 號巴士", "於 SFU Transportation Centre 下車", "可先下山走 Velodrome Trail 再爬回，全程 1.5–2.5 小時"],dur:"環線約 2–2.5 小時",permit:null,chal:"Velodrome 一段連續陡坡，雨後泥濘濕滑；下坡對膝蓋負擔大，建議帶登山杖。",gearBasic:true,gear:"抓地力好的登山鞋、登山杖（下坡）、飲用水 1L",scenery:"山頂圖騰柱與玫瑰園，正對 Indian Arm 與 Seymour、Cates Park 一線海景。",maps:"https://maps.google.com/?q=Burnaby+Mountain+Conservation+Area"},
+
+{id:102,area:"burnaby",lvl:1,src:["local"],cat:"transit",name:"羅伯特本拿比公園 Robert Burnaby Park",walkMin:0,station:"Edmonds 站轉巴士",diff:1,bear:false,wc:3,wcNote:"停車場旁季節性洗手間，夏季維護良好",img:"https://images.unsplash.com/photo-1448375240586-882707db888b?w=800&auto=format&fit=crop&q=80",why:"Burnaby 東側被嚴重低估的老森林公園，高聳花旗松與小溪谷，週間幾乎沒人，是想安靜走路時的首選。",transit:["Edmonds 站出站", "轉乘 112 或 116 號巴士約 8 分鐘", "公園內步道網約 1–1.5 小時走完"],dur:"約 1–1.5 小時",permit:null,chal:"步道分岔多但範圍不大；雨季部分低窪路段積水。",gearBasic:true,gear:"輕便鞋、防水外套（雨季）、飲用水",scenery:"百年花旗松林、蕨類地被、小溪與木橋，秋季楓紅。",maps:"https://maps.google.com/?q=Robert+Burnaby+Park+Burnaby+BC"},
+
+{id:103,area:"burnaby",lvl:1,src:["local", "xhs"],cat:"transit",name:"巴奈特海濱公園 Barnet Marine Park",walkMin:0,station:"Holdom 站轉 130 巴士",diff:1,bear:false,wc:4,wcNote:"海灘旁固定洗手間，夏季每日清潔",img:"https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=800&auto=format&fit=crop&q=80",why:"Burrard Inlet 邊的舊鋸木廠遺址改建，沙灘、木棧道與森林步道相連，夕陽時分是本地家庭的日常散步地。",transit:["Holdom 站出站轉 130 號巴士", "於 Barnet Hwy 下車後步行 5 分鐘下坡入園", "海濱＋森林步道約 1–1.5 小時"],dur:"約 1–1.5 小時",permit:null,chal:"入園是一段陡下坡，回程要爬上來；夏季週末停車位極滿。",gearBasic:true,gear:"輕便鞋、防曬、飲用水",scenery:"長木棧碼頭伸入海灣，對岸 Belcarra 與 Indian Arm，日落時整片海面染金。",maps:"https://maps.google.com/?q=Barnet+Marine+Park+Burnaby"},
+
+{id:104,area:"richmond",lvl:1,src:["local", "reddit"],cat:"driving",name:"愛奧那海灘區域公園 Iona Beach",walkMin:0,station:"需開車（約 30 分鐘）",diff:1,bear:false,wc:3,wcNote:"停車場旁洗手間，季節性維護",img:"https://images.unsplash.com/photo-1474552226712-ac0f0961a954?w=800&auto=format&fit=crop&q=80",why:"全大溫最平坦的長距離步道，4 公里長堤直直伸進喬治亞海峽。賞鳥人的聖地，飛機起降就在頭頂，景象非常特別。",transit:["由市區開車經 Grant McConachie Way 約 30 分鐘", "公園停車場免費", "長堤來回 8 公里，約 2 小時（可隨時折返）"],dur:"長堤來回約 2 小時；短程 1 小時",permit:null,chal:"全程無遮蔽，海風強且日曬直接；沒有中途廁所。",gearBasic:true,gear:"防風外套、帽子、防曬、望遠鏡（賞鳥）、飲用水",scenery:"筆直伸入海中的長堤，遠眺溫哥華島與北岸山脈，YVR 飛機低空掠過。",maps:"https://maps.google.com/?q=Iona+Beach+Regional+Park"},
+
+{id:105,area:"richmond",lvl:2,src:["local", "xhs"],cat:"transit",name:"列治文西堤步道 West Dyke Trail",walkMin:0,station:"Brighouse 站轉巴士",diff:1,bear:false,wc:3,wcNote:"Terra Nova 與 Garry Point 兩端皆有洗手間",img:"https://images.unsplash.com/photo-1512036666432-2181c1f26420?w=800&auto=format&fit=crop&q=80",why:"從 Terra Nova 自然公園沿海堤一路走到 Garry Point，5.5 公里全平路卻看得到最完整的海峽日落，是列治文人真正的日常路線。",transit:["Brighouse 站轉 402 或 407 號巴士", "於 Westminster Hwy 西端下車接上堤道", "單程 5.5 公里，來回約 2.5 小時"],dur:"來回約 2.5 小時（單程 1.2 小時）",permit:null,chal:"毫無遮蔽，冬季海風冷冽；路面碎石，推車尚可但顛簸。",gearBasic:true,gear:"防風外套、帽子、飲用水、相機",scenery:"鹽沼濕地、鷺鷥與雪雁群，遠眺溫哥華島；終點 Garry Point 的日落是列治文明信片畫面。",maps:"https://maps.google.com/?q=Terra+Nova+Rural+Park+Richmond"},
+
+{id:106,area:"richmond",lvl:1,src:["xhs", "ig"],cat:"transit",name:"史蒂夫斯頓漁人碼頭步道 Steveston Boardwalk",walkMin:0,station:"Brighouse 站轉 401/407",diff:1,bear:false,wc:4,wcNote:"漁人碼頭與 Garry Point 皆有現代化洗手間",img:"https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&auto=format&fit=crop&q=80",why:"小紅書上溫哥華曝光度最高的海邊之一。從漁人碼頭沿木棧道走到 Garry Point，看漁船卸貨、吃 fish & chips，走路與吃飯一次滿足。",transit:["Brighouse 站轉 401 或 407 號巴士約 20 分鐘", "Steveston Village 下車即達碼頭", "木棧道＋Garry Point 環走約 1–1.5 小時"],dur:"約 1–1.5 小時",permit:null,chal:"週末人潮很多，停車困難；路面平坦無難度。",gearBasic:true,gear:"任何鞋子、相機、現金（漁船直銷海鮮）",scenery:"漁船雲集的歷史漁港、罐頭廠古蹟，Garry Point 大草坪與海峽夕陽。",maps:"https://maps.google.com/?q=Steveston+Fisherman%27s+Wharf+Richmond"},
+
+{id:107,area:"vancouver",lvl:1,src:["xhs", "ig"],cat:"skytrain",name:"伊莉莎白女王公園 Queen Elizabeth Park",walkMin:10,station:"King Edward 站",diff:1,bear:false,wc:4,wcNote:"採石場花園與 Bloedel 溫室旁固定洗手間",img:"https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&auto=format&fit=crop&q=80",why:"溫哥華市最高點，採石場花園四季有花，山頂看得到市中心天際線與北岸山脈同框——小紅書婚紗與情侶照的固定場景。",transit:["King Edward 站（Canada Line）出站", "沿 Cambie St 往南步行約 10 分鐘", "園內繞行約 1–1.5 小時"],dur:"約 1–1.5 小時",permit:null,chal:"部分坡道與階梯；假日婚紗攝影人潮多。",gearBasic:true,gear:"輕便鞋、相機、飲用水",scenery:"下沉式採石場花園、瀑布與拱橋，山頂 360 度眺望市區與 North Shore 群山。",maps:"https://maps.google.com/?q=Queen+Elizabeth+Park+Vancouver"},
+
+{id:108,area:"vancouver",lvl:1,src:["local", "ig"],cat:"transit",name:"傑瑞可－西班牙灘海濱 Jericho & Spanish Banks",walkMin:0,station:"4th Ave 巴士（4/7/44）",diff:1,bear:false,wc:4,wcNote:"沿線多處海灘洗手間，夏季全開",img:"https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&auto=format&fit=crop&q=80",why:"從 Jericho Beach 一路沿沙灘走到 Spanish Banks 西端，退潮時沙灘寬到誇張，是溫哥華人看夕陽的第一選擇。",transit:["搭 4 號或 44 號巴士至 4th Ave & Alma", "步行 8 分鐘下到 Jericho Beach", "沿海濱西行來回約 2 小時"],dur:"來回約 1.5–2 小時",permit:null,chal:"退潮時沙地泥濘；無遮蔽，夏季正午曬。",gearBasic:true,gear:"輕便鞋或涼鞋、防曬、飲用水",scenery:"市中心天際線與北岸山脈同框，退潮沙灘倒影，夏季帆船點點。",maps:"https://maps.google.com/?q=Jericho+Beach+Vancouver"},
+
+{id:109,area:"vancouver",lvl:1,src:["local"],cat:"transit",name:"艾佛烈克勞利公園 Everett Crowley Park",walkMin:0,station:"Marine Drive 站轉 100 巴士",diff:1,bear:false,wc:3,wcNote:"主入口停車場旁季節性洗手間",img:"https://images.unsplash.com/photo-1448375240586-882707db888b?w=800&auto=format&fit=crop&q=80",why:"溫哥華第五大公園，前身是垃圾掩埋場，如今是野生自然復育地。幾乎沒有觀光客，是東南溫本地人遛狗與跑步的秘密基地。",transit:["Marine Drive 站轉 100 號巴士", "於 Kerr St 下車步行 5 分鐘", "園內環走約 1–1.5 小時"],dur:"約 1–1.5 小時",permit:null,chal:"步道岔路多、指標較少，建議開離線地圖；雨後泥濘。",gearBasic:true,gear:"防滑鞋、離線地圖、飲用水",scenery:"次生林與野花草坡，制高點可望 Fraser River 與 Mount Baker。",maps:"https://maps.google.com/?q=Everett+Crowley+Park+Vancouver"},
+
+{id:110,area:"downtown",lvl:2,src:["xhs", "ig"],cat:"skytrain",name:"福溪海濱步道 False Creek Seawall",walkMin:2,station:"Olympic Village 站",diff:1,bear:false,wc:4,wcNote:"Olympic Village、Granville Island、Science World 沿線皆有",img:"https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&auto=format&fit=crop&q=80",why:"Stanley Park 海牆之外，本地人更常走的是這一圈。繞行 False Creek 一週約 10 公里，全程平坦、咖啡店密度極高，是最容易走滿 2 小時的都市路線。",transit:["Olympic Village 站（Canada Line）出站步行 2 分鐘即達海牆", "逆時針經 Granville Island → Yaletown → Science World", "繞行一圈約 10 公里，2–2.5 小時"],dur:"繞一圈約 2–2.5 小時",permit:null,chal:"與自行車道共用，注意分道；夏季週末非常擁擠。",gearBasic:true,gear:"輕便鞋、飲用水、悠遊心情與零錢（渡輪）",scenery:"玻璃帷幕天際線倒映水面，Granville Island 市集、Science World 銀球，夜景尤佳。",maps:"https://maps.google.com/?q=Olympic+Village+Station+Vancouver"},
+
+{id:111,area:"tricities",lvl:2,src:["local", "reddit"],cat:"transit",name:"高貴林脆步道 Coquitlam Crunch",walkMin:0,station:"Lafarge Lake–Douglas 站轉巴士",diff:2,bear:false,wc:3,wcNote:"Lansdowne 入口與 Eagle Ridge 端有洗手間",img:"https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800&auto=format&fit=crop&q=80",why:"三聯市版的 Grouse Grind——全長 2.4 公里、約 500 階木梯，本地人下班後練腿的固定行程。不需開車就能做到有效爬升。",transit:["Lafarge Lake–Douglas 站轉 174 或 175 號巴士", "於 Lansdowne Dr 入口下車", "來回約 1.5–2 小時"],dur:"來回約 1.5–2 小時",permit:null,chal:"連續木階與陡坡，心肺負荷高；下坡膝蓋壓力大，建議帶登山杖。",gearBasic:true,gear:"登山鞋、登山杖、飲用水 1L、毛巾",scenery:"制高點眺望 Fraser Valley 與 Golden Ears 群峰，沿途社區花園與野兔。",maps:"https://maps.google.com/?q=Coquitlam+Crunch+Lansdowne+Drive"},
+
+{id:112,area:"tricities",lvl:1,src:["local"],cat:"transit",name:"蒙迪公園 Mundy Park",walkMin:0,station:"Coquitlam Central 站轉巴士",diff:1,bear:false,wc:4,wcNote:"體育館旁固定洗手間，全年開放",img:"https://images.unsplash.com/photo-1548777123-e216912df7d8?w=800&auto=format&fit=crop&q=80",why:"435 英畝的都市原始林，Mundy Lake 與 Lost Lake 兩座小湖串起環狀步道。全程樹蔭，夏天最涼快的近郊選擇。",transit:["Coquitlam Central 站轉 152 或 156 號巴士", "於 Austin Ave 下車即達", "環湖步道約 1–1.5 小時"],dur:"約 1–1.5 小時",permit:null,chal:"林內岔路多、手機訊號弱；雨後泥濘。",gearBasic:true,gear:"防滑鞋、防蚊液（夏季）、飲用水",scenery:"高聳西部紅雪松與鐵杉林，兩座靜謐小湖，苔蘚遍佈的倒木。",maps:"https://maps.google.com/?q=Mundy+Park+Coquitlam"},
+
+{id:113,area:"tricities",lvl:2,src:["local", "reddit"],cat:"transit",name:"殖民農場區域公園 Colony Farm",walkMin:0,station:"Coquitlam Central 站轉巴士",diff:1,bear:false,wc:3,wcNote:"主停車場旁洗手間",img:"https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&auto=format&fit=crop&q=80",why:"8 公里近乎零爬升的河濱步道網，全大溫最好的賞鳥地之一，全年開放、可帶狗。適合想走久一點但不想爬山的日子。",transit:["Coquitlam Central 站轉 C38 社區巴士，或由站區步行約 20 分鐘", "沿 Colony Farm Rd 進入公園", "步道網走完約 2 小時"],dur:"約 1.5–2 小時",permit:null,chal:"無遮蔽路段多，夏季曬冬季風大；蚊蟲季注意防護。",gearBasic:true,gear:"輕便鞋、望遠鏡、防蚊液、飲用水",scenery:"Coquitlam River 與 Fraser River 交匯的草澤濕地，鷹隼盤旋，遠眺 Golden Ears。",maps:"https://maps.google.com/?q=Colony+Farm+Regional+Park"},
+
+{id:114,area:"tricities",lvl:1,src:["local", "xhs"],cat:"skytrain",name:"洛基角海岸步道 Rocky Point Shoreline Trail",walkMin:8,station:"Moody Centre 站",diff:1,bear:false,wc:4,wcNote:"Rocky Point Park 現代化洗手間，全年開放",img:"https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&auto=format&fit=crop&q=80",why:"Moody Centre 站出站步行 8 分鐘即到海邊。Shoreline Trail 沿 Burrard Inlet 內灣走到 Old Orchard Park，終點還有本地知名冰淇淋店。",transit:["Moody Centre 站（Evergreen Line）出站", "往北步行約 8 分鐘至 Rocky Point Park", "Shoreline Trail 來回約 1.5 小時"],dur:"來回約 1–1.5 小時",permit:null,chal:"路面平坦好走；夏季週末碼頭區人潮多。",gearBasic:true,gear:"任何鞋子、飲用水",scenery:"內灣潮間帶、木棧觀景台，秋季可見鮭魚洄游至 Noons Creek。",maps:"https://maps.google.com/?q=Rocky+Point+Park+Port+Moody"},
+
+{id:115,area:"tricities",lvl:1,src:["xhs", "local"],cat:"driving",name:"薩薩馬特湖 Sasamat Lake & White Pine Beach",walkMin:0,station:"需開車（約 45 分鐘）",diff:1,bear:true,wc:4,wcNote:"White Pine Beach 有完整洗手間與更衣室",img:"https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&auto=format&fit=crop&q=80",why:"大溫最溫暖的淡水湖，夏天真的可以游泳。環湖步道含一段浮橋，3.5 公里輕鬆走完，是夏日「健行＋玩水」一次搞定的路線。",transit:["由市區開車經 Ioco Rd 約 45 分鐘", "White Pine Beach 停車場（夏季需付費且極早滿）", "環湖步道 3.5 公里約 1–1.5 小時"],dur:"環湖約 1–1.5 小時",permit:null,chal:"🔥 2026/8 最新：鄰近 Belcarra 公園有野火燃燒中，Metro Vancouver 呼籲避開該區域，出發前請先確認公告。夏季週末停車場上午 9 點前就會關閉；偶有黑熊出沒警示。",gearBasic:true,gear:"輕便鞋、泳具與毛巾（夏季）、防蚊液、飲用水",scenery:"翡翠綠湖面、浮橋橫越湖灣，環湖冷杉林倒影。",maps:"https://maps.google.com/?q=White+Pine+Beach+Sasamat+Lake"},
+
+{id:116,area:"tricities",lvl:2,src:["xhs", "ig", "reddit"],cat:"driving",name:"邦森湖環湖 Buntzen Lake Loop",walkMin:0,station:"需開車（約 50 分鐘）",diff:2,bear:true,wc:4,wcNote:"主停車場與南灘皆有洗手間",img:"https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&auto=format&fit=crop&q=80",why:"10.5 公里環湖步道，跨過湖北端的吊橋是小紅書上溫哥華熱度極高的畫面。難度不高但距離夠，是中級路線的最佳入門。",transit:["由市區經 Barnet Hwy → Ioco Rd → Sunnyside Rd 約 50 分鐘", "BC Hydro 免費停車場（夏季常於上午額滿）", "環湖 10.5 公里約 3–4 小時"],dur:"環湖約 3–4 小時",permit:null,chal:"🔥 2026/8 最新：因 Belcarra 公園野火，BC Hydro 宣布 Buntzen Lake 遊憩區封閉至另行通知，請勿前往，出發前先查 BC Hydro 公告。東岸有起伏與樹根路段；黑熊活動頻繁，需結伴出聲；停車場有每日容量管制。",gearBasic:true,gear:"登山鞋、登山杖、防熊噴霧或熊鈴、飲用水 1.5L、行動糧",scenery:"狹長湖面夾在陡峭山壁間，北端吊橋與浮碼頭，倒影極美。",maps:"https://maps.google.com/?q=Buntzen+Lake+Recreation+Area"},
+
+{id:117,area:"surrey",lvl:1,src:["local", "ig"],cat:"transit",name:"新月灘－黑基岬 Crescent Beach & Blackie Spit",walkMin:0,station:"King George 站轉 351 巴士",diff:1,bear:false,wc:4,wcNote:"Crescent Beach 與 Blackie Spit 皆有固定洗手間",img:"https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800&auto=format&fit=crop&q=80",why:"素里最有度假感的海邊小鎮。沿海濱走到 Blackie Spit 沙嘴，是加拿大西岸重要的候鳥棲地，冬天可以看到成群的鷸鴴。",transit:["King George 站轉 351 號巴士", "於 Crescent Rd 下車步行 10 分鐘至海濱", "海濱＋沙嘴環走約 1.5 小時"],dur:"約 1.5 小時",permit:null,chal:"漲潮時部分沙灘不可通行，出發前查潮汐；無遮蔽。",gearBasic:true,gear:"輕便鞋、防風外套、望遠鏡、飲用水",scenery:"淺灘與沙嘴、遠眺白石鎮與美國 Mount Baker，退潮時大片潮間帶。",maps:"https://maps.google.com/?q=Blackie+Spit+Surrey+BC"},
+
+{id:118,area:"surrey",lvl:1,src:["local"],cat:"skytrain",name:"綠木都市森林 Green Timbers Urban Forest",walkMin:12,station:"Surrey Central 站轉巴士",diff:1,bear:false,wc:3,wcNote:"湖畔停車場旁季節性洗手間",img:"https://images.unsplash.com/photo-1418985991508-e47386d96a71?w=800&auto=format&fit=crop&q=80",why:"BC 省第一片人工造林地（1930 年），如今成了素里市中心旁的森林湖泊。交通方便、地勢平坦，適合想在城裡快速進入森林的日子。",transit:["Surrey Central 站轉 337 或 314 號巴士", "於 100 Ave & 148 St 下車步行 5 分鐘", "環湖＋林道約 1–1.5 小時"],dur:"約 1–1.5 小時",permit:null,chal:"部分路段鄰近幹道有車聲；雨後泥濘。",gearBasic:true,gear:"輕便鞋、飲用水",scenery:"人工湖倒映高聳花旗松，春季有鴨群育雛，秋季落葉步道。",maps:"https://maps.google.com/?q=Green+Timbers+Urban+Forest+Park+Surrey"},
+
+{id:119,area:"surrey",lvl:2,src:["local", "reddit"],cat:"driving",name:"邊界灣堤岸步道 Boundary Bay Dyke",walkMin:0,station:"需開車（約 50 分鐘）",diff:1,bear:false,wc:3,wcNote:"Centennial Beach 有洗手間，堤岸沿線無",img:"https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?w=800&auto=format&fit=crop&q=80",why:"從 Centennial Beach 往東的堤岸步道可以一路走十幾公里，是北美太平洋航道上最重要的候鳥度冬地之一。冬天成千上萬隻雪雁降落的畫面非常震撼。",transit:["由市區經 Hwy 99 → Tsawwassen 約 50 分鐘", "Centennial Beach 停車場（夏季收費）", "堤岸來回自選長度，建議 2–2.5 小時"],dur:"來回約 2–2.5 小時（可自由折返）",permit:null,chal:"完全無遮蔽也無中途廁所；冬季海風極冷，夏季曬。",gearBasic:true,gear:"防風外套、帽子、望遠鏡、飲用水、行動糧",scenery:"廣闊鹽沼與潮間帶，冬季雪雁與短耳鴞，正對 Mount Baker。",maps:"https://maps.google.com/?q=Centennial+Beach+Boundary+Bay+Delta"},
+
+{id:120,area:"langley",lvl:1,src:["local"],cat:"driving",name:"坎貝爾谷區域公園 Campbell Valley",walkMin:0,station:"需開車（約 55 分鐘）",diff:1,bear:false,wc:4,wcNote:"南北兩處主停車場皆有洗手間",img:"https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&auto=format&fit=crop&q=80",why:"蘭里的田園步道，穀倉、馬場與濕地木棧道交錯。Little River Loop 全程平坦，是最不像大溫、最像英國鄉間的一條路線。",transit:["由市區經 Hwy 1 → 200 St 南下約 55 分鐘", "North Valley 或 South Valley 停車場（免費）", "Little River Loop 約 1.5 小時"],dur:"約 1.5 小時",permit:null,chal:"與馬道共用，注意讓行；夏季蚊蟲多。",gearBasic:true,gear:"輕便鞋、防蚊液、飲用水",scenery:"濕地木棧道與觀鳥屋、百年古蹟穀倉與農舍，春季野花草原。",maps:"https://maps.google.com/?q=Campbell+Valley+Regional+Park+Langley"},
+
+{id:121,area:"langley",lvl:1,src:["local"],cat:"driving",name:"德比里奇 Derby Reach（Fort-to-Fort Trail）",walkMin:0,station:"需開車（約 50 分鐘）",diff:1,bear:false,wc:3,wcNote:"Edgewater Bar 露營區有洗手間",img:"https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=800&auto=format&fit=crop&q=80",why:"沿 Fraser River 的歷史步道，連接兩座 Fort Langley 舊址。河面寬闊、地勢全平，秋天鮭魚洄游季常見白頭鷹。",transit:["由市區經 Hwy 1 → 232 St 約 50 分鐘", "Edgewater Bar 停車場（免費）", "Fort-to-Fort 單程 5 公里，來回約 2 小時"],dur:"來回約 2 小時",permit:null,chal:"無遮蔽路段長；春季河水高漲時部分路徑封閉。",gearBasic:true,gear:"輕便鞋、帽子、望遠鏡、飲用水",scenery:"Fraser River 寬闊河景與砂洲，秋冬白頭鷹群聚，終點 Fort Langley 老鎮可吃飯。",maps:"https://maps.google.com/?q=Derby+Reach+Regional+Park+Langley"},
+
+{id:122,area:"northshore",lvl:2,src:["reddit", "ig"],cat:"driving",name:"諾凡瀑布 Norvan Falls",walkMin:0,station:"需開車（約 40 分鐘）",diff:2,bear:true,wc:4,wcNote:"Lynn Headwaters 入口有固定洗手間",img:"https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&auto=format&fit=crop&q=80",why:"14 公里、幾乎沒有爬升的林間長走，沿 Lynn Creek 一路到瀑布。想練距離但不想爬山的日子，這是北岸最好的答案。",transit:["由市區經 Lynn Valley Rd 至 Lynn Headwaters 停車場約 40 分鐘", "4–9 月停車收費（Metro Vancouver 季節性收費）", "來回 14 公里約 4–5 小時"],dur:"來回約 4–5 小時",permit:null,chal:"距離長、樹根與碎石路面；黑熊活動區；務必在登山口登記並注意折返時間。",gearBasic:false,gear:"中筒登山鞋、登山杖、防熊噴霧、頭燈、飲用水 2L、行動糧、雨衣",scenery:"Lynn Creek 翡翠深潭與巨石，終點瀑布水量豐沛，沿途溫帶雨林苔蘚。",maps:"https://maps.google.com/?q=Lynn+Headwaters+Regional+Park"},
+
+{id:123,area:"northshore",lvl:3,src:["reddit", "ig"],cat:"driving",name:"聖馬克峰 St. Mark's Summit",walkMin:0,station:"需開車（約 45 分鐘）",diff:3,bear:true,wc:4,wcNote:"Cypress 滑雪場停車場有洗手間",img:"https://images.unsplash.com/photo-1548777123-e216912df7d8?w=800&auto=format&fit=crop&q=80",why:"Howe Sound Crest Trail 的第一個大獎。11 公里、460 公尺爬升，登頂後懸崖平台正對 Howe Sound 群島與 Tantalus 山脈，是北岸投報率最高的高級路線。",transit:["由市區經 Hwy 1 Exit 8 → Cypress Bowl Rd 約 45 分鐘", "Cypress 滑雪場停車場（免費）", "來回 11 公里約 4.5–5.5 小時"],dur:"來回約 4.5–5.5 小時",permit:null,chal:"樹根與岩石路面連續、後段陡；山頂為無護欄懸崖需退後站；6 月前常有殘雪。",gearBasic:false,gear:"中筒登山鞋、登山杖、防熊噴霧、保暖層、頭燈、飲用水 2L、行動糧",scenery:"懸崖觀景台俯瞰 Howe Sound 峽灣與島嶼，遠方 Tantalus 冰川群峰一字排開。",maps:"https://maps.google.com/?q=Cypress+Mountain+Downhill+Parking+Lot"},
+
+{id:124,area:"northshore",lvl:3,src:["reddit"],cat:"driving",name:"鷹崖 Eagle Bluffs",walkMin:0,station:"需開車（約 45 分鐘）",diff:3,bear:true,wc:4,wcNote:"Cypress 滑雪場停車場有洗手間",img:"https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&auto=format&fit=crop&q=80",why:"8 公里、350 公尺爬升，經過 Cabin Lake 後抵達開闊裸岩崖頂，一次看盡溫哥華市區、海灣與 Bowen Island。相對 St. Mark's 距離短但地形更多變。",transit:["由市區經 Hwy 1 Exit 8 → Cypress Bowl Rd 約 45 分鐘", "Cypress 滑雪場停車場出發", "來回 8 公里約 3.5–4.5 小時"],dur:"來回約 3.5–4.5 小時",permit:null,chal:"需踩過大塊裸岩與濕滑樹根；崖頂無護欄；起霧時路徑標記不易辨識。",gearBasic:false,gear:"登山鞋、登山杖、風雨衣、離線地圖、飲用水 1.5L、行動糧",scenery:"Cabin Lake 適合夏季泡腳，崖頂 180 度俯瞰喬治亞海峽與市區天際線。",maps:"https://maps.google.com/?q=Eagle+Bluffs+Cypress+Provincial+Park"},
+
+{id:125,area:"northshore",lvl:3,src:["xhs", "reddit"],cat:"driving",name:"西摩山主峰 Mount Seymour Peak",walkMin:0,station:"需開車（約 50 分鐘）",diff:4,bear:true,wc:4,wcNote:"滑雪場基地有洗手間",img:"https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?w=800&auto=format&fit=crop&q=80",why:"8.1 公里、606 公尺爬升，經 Pump Peak、Tim Jones Peak 到主峰，三段稜線各有展望。是大溫最容易抵達的真正山頂體驗。",transit:["由市區經 Hwy 1 → Mount Seymour Pkwy → Mount Seymour Rd 約 50 分鐘", "上層停車場出發", "來回 8.1 公里約 4–5 小時"],dur:"來回約 4–5 小時",permit:null,chal:"後段需手腳並用的岩石地形；殘雪可持續到 7 月，冬季需雪鞋與冰爪；起霧極易迷途。",gearBasic:false,gear:"中筒登山鞋、登山杖、保暖層與手套、離線地圖、頭燈、飲用水 2L",scenery:"稜線俯瞰 Indian Arm、市區與 Mount Baker，高山湖泊與扭曲的鐵杉林。",maps:"https://maps.google.com/?q=Mount+Seymour+Provincial+Park+Parking"},
+
+{id:126,area:"northshore",lvl:2,src:["xhs", "ig"],cat:"driving",name:"神秘湖 Mystery Lake",walkMin:0,station:"需開車（約 50 分鐘）",diff:2,bear:true,wc:4,wcNote:"滑雪場基地有洗手間",img:"https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&auto=format&fit=crop&q=80",why:"Mount Seymour 的短程版，4 公里就能抵達一座被岩壁環抱的高山湖。夏天可以跳水，是帶朋友入門「山上湖」的最佳選擇。",transit:["由市區至 Mount Seymour 上層停車場約 50 分鐘", "沿 Mystery Lake Trail 上行", "來回 4 公里約 1.5–2.5 小時"],dur:"來回約 1.5–2.5 小時",permit:null,chal:"路徑多為裸岩，雨後濕滑；殘雪期路標不明；黑熊活動區。",gearBasic:true,gear:"登山鞋、防熊噴霧、泳具（夏季）、飲用水 1L",scenery:"花崗岩環抱的清澈高山湖，湖畔可平躺曬太陽，途中展望 Indian Arm。",maps:"https://maps.google.com/?q=Mystery+Lake+Trail+Mount+Seymour"},
+
+{id:127,area:"seatosky",lvl:3,src:["ig", "reddit"],cat:"driving",name:"隧道崖 Tunnel Bluffs",walkMin:0,station:"需開車（約 40 分鐘）",diff:3,bear:true,wc:2,wcNote:"登山口無洗手間，需於 Lions Bay 村內先解決",img:"https://images.unsplash.com/photo-1448375240586-882707db888b?w=800&auto=format&fit=crop&q=80",why:"11.5 公里、467 公尺爬升，崖頂是整條 Sea-to-Sky 上最開闊的 Howe Sound 展望之一，IG 上經典的懸崖坐拍照點。",transit:["由市區經 Hwy 99 至 Lions Bay 約 40 分鐘", "Sunset Drive 盡頭付費停車位有限，務必查最新規定", "來回 11.5 公里約 3.5–5 小時"],dur:"來回約 3.5–5 小時",permit:null,chal:"停車嚴格管制且位子極少，需極早到；上坡為連續碎石陡坡；崖頂無護欄。",gearBasic:false,gear:"登山鞋、登山杖、風衣、飲用水 2L、行動糧、零錢或 App 付停車費",scenery:"崖頂平台正對 Howe Sound 峽灣、Bowen Island 與對岸 Tantalus 群峰。",maps:"https://maps.google.com/?q=Tunnel+Bluffs+Trailhead+Lions+Bay"},
+
+{id:128,area:"northshore",lvl:3,src:["xhs", "ig", "reddit"],cat:"transit",name:"格勞斯登山道 Grouse Grind",walkMin:0,station:"Waterfront 站轉 SeaBus + 236 巴士",diff:4,bear:false,wc:4,wcNote:"登山口與山頂皆有完整洗手間",img:"https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&auto=format&fit=crop&q=80",why:"「大自然的階梯機」——2.5 公里爬升 800 公尺，是溫哥華最有名的體能挑戰。不需開車就能到，下山搭纜車，適合想一次把心肺練爆的日子。",transit:["Waterfront 站搭 SeaBus 至 Lonsdale Quay", "轉 236 號巴士至 Grouse Mountain 終點站", "單程上行約 1.5–2 小時，下山搭纜車（需付費）"],dur:"上行約 1.5–2 小時（下山搭纜車）",permit:null,chal:"連續 2,830 級階梯，膝蓋與心肺負荷極高；僅能單向上行；季節性開放時間，出發前務必查官方公告。",gearBasic:false,gear:"登山鞋、排汗衣物、毛巾、飲用水 1.5L、纜車下山費用",scenery:"山頂平台俯瞰整個大溫地區與海灣，晴天可見 Mount Baker。",maps:"https://maps.google.com/?q=Grouse+Grind+Trailhead"},
+
+{id:129,area:"northshore",lvl:3,src:["reddit"],cat:"transit",name:"鮑登鮑威爾步道（深灣→林恩峽谷）Baden-Powell",walkMin:0,station:"Phibbs Exchange 轉 212 巴士",diff:3,bear:true,wc:4,wcNote:"Deep Cove 與 Lynn Canyon 兩端皆有洗手間",img:"https://images.unsplash.com/photo-1418985991508-e47386d96a71?w=800&auto=format&fit=crop&q=80",why:"不用開車就能完成的縱走。從 Deep Cove 起登、經 Quarry Rock 一路穿越北岸森林下到 Lynn Canyon，約 11 公里單程，是本地老手最愛的巴士接駁路線。",transit:["Phibbs Exchange 轉 212 號巴士至 Deep Cove", "由 Panorama Park 起登 Baden-Powell Trail 西行", "單程 11 公里約 4.5–5.5 小時，終點 Lynn Canyon 搭 228 號巴士返回"],dur:"單程約 4.5–5.5 小時",permit:null,chal:"連續上下坡與大量樹根、階梯；黑熊活動區；務必抓好末班巴士時間。",gearBasic:false,gear:"中筒登山鞋、登山杖、防熊噴霧、頭燈、飲用水 2L、行動糧、Compass 卡",scenery:"Quarry Rock 俯瞰 Indian Arm，中段深邃雨林與溪谷，終點 Lynn Canyon 吊橋。",maps:"https://maps.google.com/?q=Panorama+Park+Deep+Cove+North+Vancouver"},
+
+{id:130,area:"fraser",lvl:2,src:["xhs", "local"],cat:"driving",name:"茶壺山 Teapot Hill",walkMin:0,station:"需開車（約 1 小時 40 分）",diff:2,bear:true,wc:4,wcNote:"Cultus Lake 省立公園有完整洗手間",img:"https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&auto=format&fit=crop&q=80",why:"5.5 公里、爬升約 300 公尺的家庭友善小山，沿途藏著上百個網友放置的茶壺，山頂俯瞰 Cultus Lake 全景。適合帶長輩或小孩的中級入門。",transit:["由市區經 Hwy 1 至 Chilliwack → Cultus Lake 約 1 小時 40 分", "Teapot Hill 停車場（省立公園日間收費）", "來回 5.5 公里約 2–2.5 小時"],dur:"來回約 2–2.5 小時",permit:null,chal:"碎石車道路面，坡度穩定但持續；夏季炎熱，需早出發；黑熊活動區。",gearBasic:true,gear:"登山鞋、遮陽帽、防熊噴霧、飲用水 1.5L",scenery:"山頂展望 Cultus Lake 湖面與 Fraser Valley 農田，沿途茶壺彩蛋是小孩最愛。",maps:"https://maps.google.com/?q=Teapot+Hill+Trail+Cultus+Lake"},
+
+{id:131,area:"fraser",lvl:3,src:["reddit", "ig"],cat:"driving",name:"麋鹿山 Elk Mountain",walkMin:0,station:"需開車（約 1 小時 40 分）",diff:3,bear:true,wc:2,wcNote:"登山口僅有簡易廁所，建議於 Chilliwack 市區先解決",img:"https://images.unsplash.com/photo-1448375240586-882707db888b?w=800&auto=format&fit=crop&q=80",why:"7 公里、爬升 700 公尺，登頂後是一整片開闊高山草坡，正對 Mount Cheam 與整個 Fraser Valley。夏末野花季時是菲沙河谷最美的稜線。",transit:["由市區經 Hwy 1 至 Chilliwack → Chilliwack Lake Rd → Elk View Rd 約 1 小時 40 分", "登山口路邊停車位有限", "來回 7 公里約 3–4 小時"],dur:"來回約 3–4 小時",permit:null,chal:"全程陡上幾乎沒有平段；稜線無遮蔽且風大；黑熊活動頻繁。",gearBasic:false,gear:"中筒登山鞋、登山杖、防熊噴霧、風衣與保暖層、飲用水 2L、行動糧",scenery:"開闊草坡稜線正對 Mount Cheam 巨大山體，腳下是整片 Fraser Valley 農田與河道。",maps:"https://maps.google.com/?q=Elk+Mountain+Trailhead+Chilliwack"},
+
+/* ══ 2026-08-10 每週新增 ══════════════════════════════════════ */
+{id:132,area:"northshore",lvl:3,src:["reddit", "local"],cat:"transit",name:"林恩峰 Lynn Peak",walkMin:0,station:"Lonsdale Quay 轉 #228，Lynn Valley Rd & Dempsey 下車",diff:4,bear:true,wc:3,wcNote:"僅停車場（過橋前）有洗手間，步道全程沒有",img:"https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&auto=format&fit=crop&q=80",why:"在地人口中「不用排隊的 Grouse Grind」——一樣的心肺強度、9 公里、爬升 720 公尺，人卻少非常多。終點岩石平台看得到 Seymour、市區，天氣好連美國都看得見。想練腿又不想跟觀光客擠纜車的日子就是它。",transit:["Waterfront 站搭 SeaBus 到 Lonsdale Quay", "轉 #228 Lynn Valley 公車，在 Dempsey Rd & Lynn Valley Rd 下車（上車先跟司機說一聲）", "下車後沿柏油路走進森林到 Lynn Headwaters 停車場，過橋即登山口"],dur:"來回約 4 小時（9 公里 / 爬升 720 公尺）",permit:null,chal:"路面碎石鬆動、下坡最容易滑倒，官方建議季節為 6–10 月，其餘月份高處可能殘雪；黑熊活動區；展望台之後的「真正山頂」無視野，多數人走到展望台就折返。",gearBasic:false,gear:"🔴 進階裝備：中筒登山鞋（抓地力優先）、登山杖、飲用水 2L、行動糧、防風保暖層、頭燈、防熊噴霧",scenery:"二代林高聳杉木一路相伴，中段兩處展望正對 Seymour 的紅色訊號塔，終點岩石平台可坐下俯瞰 Burrard Inlet 與市區天際線。",maps:"https://maps.google.com/?q=Lynn+Peak+North+Vancouver"},
+
+{id:133,area:"northshore",lvl:2,src:["local", "reddit"],cat:"transit",name:"兄弟溪環線 Brothers Creek Loop",walkMin:0,station:"Park Royal 轉 #254，Chartwell Dr & Eyremount Dr 下車",diff:3,bear:true,wc:2,wcNote:"步道與登山口皆無洗手間，請先在 Park Royal 解決",img:"https://images.unsplash.com/photo-1448375240586-882707db888b?w=800&auto=format&fit=crop&q=80",why:"西溫 British Properties 上方的老森林環線，7 公里、爬升 350 公尺，沿途兩道瀑布與一棵 60 公尺高的 Candelabra Fir 巨木殘幹。被在地人列為「最好的公車可達路線」之一，人潮遠少於林恩峽谷。",transit:["市區 Georgia & Seymour 搭 #250 往 Horseshoe Bay，Park Royal 下車", "對街轉 #254 British Properties，在 Chartwell Dr & Eyremount Dr 下車", "沿 Crestline → Henlow → Millstream 步行約 10 分鐘到登山口鐵絲網"],dur:"環線約 4 小時（7 公里 / 爬升 350 公尺）",permit:null,chal:"⚠️ 步道評論回報下段木橋因受損封閉，可能需改走 Crossover Trail 或原路折返，出發前先查最新回報；土地屬 British Pacific Properties 私有地，開放通行但風險自負；冬季高處積雪，最佳季節 4–11 月；黑熊活動區。",gearBasic:true,gear:"中筒登山鞋、登山杖、飲用水 1.5L、行動糧、防雨外套、熊鈴或防熊噴霧",scenery:"西部紅雪松與花旗松巨木林，Brothers Creek 上下兩道瀑布沿陡峭岩壁傾瀉，橋上視野最好。",maps:"https://maps.google.com/?q=Brothers+Creek+Loop+West+Vancouver"},
+
+{id:134,area:"northshore",lvl:2,src:["local", "ig"],cat:"driving",name:"荷莉本山 Hollyburn Mountain",walkMin:0,station:"需開車（約 45 分鐘，Cypress 越野滑雪區停車場）",diff:3,bear:true,wc:3,wcNote:"Cypress 越野滑雪區有洗手間；岔路口再往前 20 公尺另有一處旱廁",img:"https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&auto=format&fit=crop&q=80",why:"只有半天空檔卻想真的「上山」時的標準答案。7 公里、爬升 450 公尺，山頂裸岩可 360 度看喬治亞海峽、灣島群、市區西區，回頭就是雙獅峰。比同區的 St. Mark's 與 Eagle Bluffs 短，風景卻不輸。",transit:["Hwy 1 西行 Exit #8 上 Cypress Provincial Park", "岔路右轉，停在滑雪租借站前的地圖看板旁", "登山口自看板旁沿高壓電塔下方起登"],dur:"來回約 3.5 小時（7 公里 / 爬升 450 公尺）",permit:null,chal:"官方建議季節 7–10 月，其餘月份殘雪厚且路跡不明；晚夏草甸莓果成熟是黑熊覓食熱點，務必出聲結伴；無大眾運輸直達，需自駕或共乘。",gearBasic:false,gear:"🔴 進階裝備：中筒登山鞋、登山杖、飲用水 2L、行動糧、防風保暖層、防熊噴霧、離線地圖",scenery:"沿途經過 Fourth Lake 等數座高山小湖與莓果草甸，山頂裸岩展望喬治亞海峽、灣島群與雙獅峰。",maps:"https://maps.google.com/?q=Hollyburn+Mountain+Cypress+Provincial+Park"},
+
 ];
 
 /* ── STATE ── */
@@ -458,11 +551,32 @@ function permitHtml(t){
 function transitHtml(t){
   return`<ul class="tlist">${t.transit.map(l=>`<li>${l}</li>`).join('')}</ul>`;
 }
+
+/* ── 篩選狀態（2026 擴充） ── */
+let fArea='all',fLvl='all',fSrc='all';
+const AREA_LBL={"downtown": "🌆 市中心", "vancouver": "🍁 溫哥華市", "burnaby": "🌳 本拿比", "richmond": "🌊 列治文", "newwest": "🏛 新西敏", "northshore": "🏔 北岸（北溫/西溫）", "tricities": "🏞 三聯市（高貴林/滿地寶）", "surrey": "🕊 素里/三角洲/白石", "langley": "🐴 蘭里/楓樹嶺", "seatosky": "⛰ Squamish / Sea-to-Sky", "fraser": "🌲 菲沙河谷"},LVL_LBL={"1": "🟢 初級（2 小時內）", "2": "🟡 中級", "3": "🔴 高級（需登山杖／進階）"},SRC_LBL={"xhs": "📕 小紅書熱門", "ig": "📸 IG / KOL 打卡", "reddit": "👥 Reddit 在地社群", "local": "🏡 在地人日常"};
+function bindFilters(){
+  [['area',v=>fArea=v],['lvl',v=>fLvl=v],['src',v=>fSrc=v]].forEach(([key,set])=>{
+    document.querySelectorAll('.fbtn[data-'+key+']').forEach(b=>{
+      b.addEventListener('click',()=>{
+        document.querySelectorAll('.fbtn[data-'+key+']').forEach(x=>x.classList.remove('active'));
+        b.classList.add('active');set(b.dataset[key]);hlId=null;render();
+      });
+    });
+  });
+}
+function srcHtml(t){
+  const tags=(t.src||[]).map(s=>`<span class="stag">${SRC_LBL[s]||s}</span>`).join('');
+  return `<div class="srcline">${tags}</div>`;
+}
+function lvlTag(t){return `<span class="lvtag lv${t.lvl}">${LVL_LBL[t.lvl]}</span>`}
+
 function getList(){
   let list=T;
-  if(tab==='skytrain') list=list.filter(t=>t.cat==='skytrain');
-  else if(tab==='transit') list=list.filter(t=>t.cat==='transit');
-  else if(tab==='driving') list=list.filter(t=>t.cat==='driving');
+  if(tab!=='all') list=list.filter(t=>t.cat===tab);
+  if(fArea!=='all') list=list.filter(t=>t.area===fArea);
+  if(fLvl!=='all') list=list.filter(t=>t.lvl===+fLvl);
+  if(fSrc!=='all') list=list.filter(t=>(t.src||[]).includes(fSrc));
   if(q.trim()){
     const lq=q.toLowerCase();
     list=list.filter(t=>t.name.toLowerCase().includes(lq)||t.why.toLowerCase().includes(lq)||t.scenery.toLowerCase().includes(lq)||(t.gear||'').toLowerCase().includes(lq)||t.chal.toLowerCase().includes(lq));
@@ -499,7 +613,9 @@ function cardHtml(t){
   <div class="cbody">
     <div>
       <h3 class="ctitle">${t.name}</h3>
-      <div class="srow"><span class="sgl">難度&nbsp;</span>${diffHtml(t.diff)}</div>
+      <div class="srow"><span class="sgl">難度&nbsp;</span>${diffHtml(t.diff)}${lvlTag(t)}</div>
+      ${srcHtml(t)}
+      <div class="srow"><span class="sgl">地區&nbsp;</span><span class="det">${AREA_LBL[t.area]||t.area}</span></div>
       ${wcHtml(t)}
     </div>
     <div class="why">${t.why}</div>
@@ -576,6 +692,7 @@ document.getElementById('si').addEventListener('input',e=>{
   document.querySelectorAll('.tbtn').forEach(b=>b.classList.toggle('active',b.dataset.tab==='all'));
   render();
 });
+bindFilters();
 render();
 </script>
 </body>
